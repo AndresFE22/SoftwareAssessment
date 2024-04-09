@@ -18,7 +18,7 @@
                 <h3 class="text-center mt-4" style="color: #757575;">Medir, analizar y mejorar: el camino hacia la excelencia a través del plan de evaluación.</h3>
       </v-card-text>
               <div class="buttom">
-        <button class="animated-button">
+        <button @click="entrar" class="animated-button">
           <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
           </svg>
@@ -50,7 +50,7 @@
       <div class="bottom-blockw"></div>
       <h3 class="text-center mt-4" style="color: #757575;">Medir, analizar y mejorar: el camino hacia la excelencia a través del plan de evaluación.</h3>
       <div class="buttomw">
-        <button class="animated-button">
+        <button @click="entrar" class="animated-button">
           <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
           </svg>
@@ -73,10 +73,14 @@
 <script>
 export default {
   data: () => ({
-    step: 1
   }),
   props: {
     source: String
+  },
+  methods: {
+    entrar() {
+      this.$router.push('/content')
+    }
   }
 };
 </script>
