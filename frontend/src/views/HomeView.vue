@@ -1,6 +1,9 @@
 <template>
   <v-app id="inspire">
-    <v-content>
+    <div v-if="loading" class="loaderdiv">
+      <div class="loader"></div>
+    </div>
+    <v-content v-if="!loading">
       <!-- Contenido para dispositivos móviles -->
       <div v-if="$vuetify.breakpoint.smAndDown">
         <v-container>
@@ -72,8 +75,17 @@
 
 <script>
 export default {
-  data: () => ({
-  }),
+  data() {
+    return {
+      loading: true 
+    };
+  },
+  mounted() {
+    // Simula un tiempo de carga
+    setTimeout(() => {
+      this.loading = false; // Oculta el loader cuando la página está completamente cargada
+    }, 2000); // Cambia este valor por la duración real de carga de tu página
+  },
   props: {
     source: String
   },
@@ -90,6 +102,14 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.loaderdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 .right-panel {
@@ -291,4 +311,26 @@ export default {
   height: 220px;
   opacity: 1;
 }
+
+.loader {
+  width: 45px;
+  height: 40px;
+  background: linear-gradient(#0000 calc(1*100%/6),#00BBDD 0 calc(3*100%/6),#0000 0),
+            linear-gradient(#0000 calc(2*100%/6),#00BBDD 0 calc(4*100%/6),#0000 0),
+            linear-gradient(#0000 calc(3*100%/6),#00BBDD 0 calc(5*100%/6),#0000 0);
+  background-size: 10px 400%;
+  background-repeat: no-repeat;
+  animation: matrix 1s infinite linear;
+}
+
+@keyframes matrix {
+  0% {
+    background-position: 0% 100%, 50% 100%, 100% 100%
+  }
+
+  100% {
+    background-position: 0% 0%, 50% 0%, 100% 0%
+  }
+}
+  
 </style>
