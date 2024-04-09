@@ -8,7 +8,7 @@
   
   <script>
   // Importa el componente desde la carpeta "components"
-  import MiComponente from '../components/card.vue';
+  import MiComponente from '../components/tokens/results/r1.vue';
   
   export default {
     components: {
