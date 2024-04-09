@@ -81,10 +81,9 @@ export default {
     };
   },
   mounted() {
-    // Simula un tiempo de carga
     setTimeout(() => {
-      this.loading = false; // Oculta el loader cuando la página está completamente cargada
-    }, 2000); // Cambia este valor por la duración real de carga de tu página
+      this.loading = false; 
+    }, 2000);
   },
   props: {
     source: String
