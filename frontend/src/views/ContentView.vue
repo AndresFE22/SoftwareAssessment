@@ -1,19 +1,36 @@
 <template>
     <div>
       <h1>App principal</h1>
-      <!-- Importando el componente desde la carpeta "components" -->
-      <MiComponente />
+    <diagram @ficha="handleOpenModal"/>
+    <modal :parametro="modalParametro" :dialog="dialog"/> 
     </div>
   </template>
   
   <script>
   // Importa el componente desde la carpeta "components"
-  import MiComponente from '../components/tokens/results/r1.vue';
+  import diagram from '../components/tokens/results/r1.vue';
+  import modal from '../components/cardModal.vue';
+
   
   export default {
     components: {
-      MiComponente
+      diagram,
+      modal
+    },
+    data() {
+    return {
+      modalParametro: '',
+      dialog: ''
     }
+  },
+  methods: {
+    handleOpenModal(parametro) {
+      this.modalParametro = parametro
+      this.dialog = true
+
+    },
+
+  }
   };
   </script>
   
