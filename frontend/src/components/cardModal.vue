@@ -1,7 +1,7 @@
 <template>
 <div class="text-center pa-4">
     <v-dialog
-      v-model="dialog"
+    v-model="dialog"
       max-width="400"
       persistent
     >
@@ -13,12 +13,10 @@
         title="Use Google's location service?"
       >  
       {{ parametro }}
-      <v-btn @click="dialog = false">
-            Disagree
-          </v-btn>
 
-          <v-btn @click="dialog = false">
-            Agree
+
+          <v-btn @click="close">
+            cerrar
           </v-btn>
        
       </v-card>
@@ -37,17 +35,23 @@ export default {
 
   data() {
     return {
-      dialog: false
+      dialog: true
     }
   },
 
-    watch: {
-    parametro: {
-      handler() {
-          this.dialog = true; 
-      }
+  methods: {
+    close() {
+      this.$emit('close')
     }
-  },
+  }
+
+  //   watch: {
+  //   parametro: {
+  //     handler() {
+  //         this.dialog = true; 
+  //     }
+  //   }
+  // },
 }
 
 </script>

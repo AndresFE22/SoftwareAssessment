@@ -12,12 +12,23 @@
           min-width="100"
           src="./assets/logoassesment.jpg"
           width="140"
+          @click="content"
+          style="cursor: pointer;"
         />
       </div>
 
       <v-spacer></v-spacer>
       <router-link to="/content">      
         <v-btn text :class="{ 'color-active': isActiveRoute('/content')}" >Contenido</v-btn>
+      </router-link>
+      <router-link to="/General">      
+        <v-btn text :class="{ 'color-active': isActiveRoute('/General')}" >General</v-btn>
+      </router-link>
+      <router-link to="/Course">      
+        <v-btn text :class="{ 'color-active': isActiveRoute('/Course')}" >Cursos</v-btn>
+      </router-link>
+      <router-link to="/Moment">      
+        <v-btn text :class="{ 'color-active': isActiveRoute('/Moment')}" >Momentos</v-btn>
       </router-link>
       <router-link to="/evaluation">      
       <v-btn text :class="{ 'color-active': isActiveRoute('/evaluation')}" >Evaluación</v-btn>
@@ -43,6 +54,10 @@
           min-width="100"
           src="./assets/logoassesment.jpg"
           width="140"
+          @click="content"
+          style="cursor: pointer;"
+
+
         />
       </div>
 
@@ -66,7 +81,7 @@
 
     </v-app-bar>
 
-    <v-main>
+    <v-main class="fondo">
       <router-view/>
     </v-main>
   </v-app>
@@ -84,8 +99,12 @@ export default {
       drawer: false,
       menuItems: [
         { text: 'Contenido', route: '/content' },
+        { text: 'General', route: '/General' },
+        { text: 'Cursos', route: '/Course' },
+        { text: 'Momentos', route: '/Moment' },
         { text: 'Evaluación', route: '/evaluation' },
         { text: 'Créditos', route: '/credit' }
+        
       ]
     }
   },
@@ -101,7 +120,12 @@ export default {
     navigateTo(route) {
       this.drawer = false; 
       this.$router.push(route); 
-    }
+    },
+    content() {
+  if (this.$route.path !== '/content') {
+    this.$router.push('/content');
+  }
+}
   },
 
 
@@ -109,6 +133,7 @@ export default {
 </script>
 
 <style>
+
 .nav {
   z-index: 999;
 }
@@ -129,5 +154,9 @@ export default {
   color: white;
 }
 
+.fondo {
+  background-image: url('../src/assets/fondo.jpg');
+  background-size: cover;
+}
 
 </style>

@@ -2,6 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ContentView from '../views/ContentView.vue'
+import General from '../views/GenerarView.vue'
+import Course from '../views/CourseView.vue'
+import Moment from '../views/MomentView.vue'
+
+
 import EvaluationView from '../views/EvaluationView.vue'
 
 
@@ -23,6 +28,21 @@ const routes = [
     path: '/content',
     name: 'content',
     component: ContentView,
+  },
+  {
+    path: '/General',
+    name: 'General',
+    component: General,
+  },
+  {
+    path: '/Moment',
+    name: 'Moment',
+    component: Moment,
+  },
+  {
+    path: '/Course',
+    name: 'Course',
+    component: Course,
   },
   {
     path: '/evaluation',
