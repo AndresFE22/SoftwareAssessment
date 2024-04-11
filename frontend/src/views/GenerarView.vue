@@ -263,7 +263,7 @@
   <div>
     </div>
     <div v-if="dialog" class="modal">
-      <div class="model-content"> <modal @close="closeModal" :parametro="modalParametro" class="modal-above"/> 
+      <div class="model-content"> <modal  @close="closeModal" :parametro="modalParametro" class="modal-above"/> 
     </div>
     </div>
     </div>
@@ -289,6 +289,8 @@
       console.log(parametro)
       this.modalParametro = parametro
       this.dialog = true
+      this.$emit('data')
+
 
     },
     closeModal() {  
