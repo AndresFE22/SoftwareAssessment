@@ -1,13 +1,11 @@
 <template>
-<div class="text-center pa-4">
+<div>
     <v-dialog
     v-model="dialog"
       max-width="auto"
       persistent
     >
-    <v-btn @click="close">cerrar</v-btn>
-    <div>
-          <div class="containerw">
+    <div class="containerw">
     <div class="left-panelw">
       <v-card>
       <v-card-title>
@@ -17,7 +15,7 @@
         <v-container>
           <v-row>
             <v-col cols="12">
-              {{ parametro }}
+              {{ nuevoParametro }}
             </v-col>
           </v-row>
           <v-row v-if="resultado">
@@ -31,9 +29,12 @@
     </v-card>
     </div>
     <div class="right-panelw">
-      <card />
+      <component :is="nuevoParametro" @change="change" />
     </div>
-  </div>        </div>
+    <v-btn @click="close" icon class="absolute top-0 right-0 m-2">
+      <v-icon>mdi-close</v-icon>
+    </v-btn>
+</div>
     </v-dialog>
 
    
@@ -41,35 +42,67 @@
 </template>
 
 <script>
+import p1 from './tokens/profiles/p1.vue';
+import p2 from './tokens/profiles/p2.vue';
+import p3 from './tokens/profiles/p3.vue';
+import p4 from './tokens/profiles/p4.vue';
+import p5 from './tokens/profiles/p5.vue';
+import c1 from './tokens/competencies/c1.vue';
+import c2 from './tokens/competencies/c2.vue';
+import c3 from './tokens/competencies/c3.vue';
+import c4 from './tokens/competencies/c4.vue';
+import c5 from './tokens/competencies/c5.vue';
+import c6 from './tokens/competencies/c6.vue';
+import c7 from './tokens/competencies/c7.vue';
+import r1 from './tokens/results/r1.vue';
+import r2 from './tokens/results/r2.vue';
+import r3 from './tokens/results/r3.vue';
+import r4 from './tokens/results/r4.vue';
+import r5 from './tokens/results/r5.vue';
+import r6 from './tokens/results/r6.vue';
+import r7 from './tokens/results/r7.vue';
 
-import card from './cardFichas.vue';
-import data from '../json/informacion.json';
+import json from '../json/informacion.json'
+
 
 
 export default {
   components: {
-    card
+    
+    p1,p2,p3,p4,p5,
+    c1,c2,c3,c4,c5,c6,c7,
+    r1,r2,r3,r4,r5,r6,r7
     },
   props: {
     parametro: {
       type: String,
       required: true
-    }
+    },
+
     },
 
   data() {
     return {
       dialog: true,
-      resultado: null
+      resultado: null,
+      nuevoParametro: ''
 
 
     }
   },
   mounted() {
+    this.update()
+
     this.obtenerInformacion()
+
+
   },
 
   methods: {
+    update() {
+      this.nuevoParametro = this.parametro;
+
+    },
     close() {
       this.$emit('close')
     },
@@ -77,23 +110,26 @@ export default {
       console.log("funciona")
     },
     obtenerInformacion() {
+
       let tipo = null;
       let id = null;
-      if (this.parametro.startsWith('p')) {
+      console.log('nuevo en funcion obtener',this.nuevoParametro)
+
+      if (this.nuevoParametro.startsWith('p')) {
         tipo = 'perfiles';
-        id = this.parametro
+        id = this.nuevoParametro
         console.log(tipo, id)
-      } else if (this.parametro.startsWith('c')) {
+      } else if (this.nuevoParametro.startsWith('c')) {
         tipo = 'competencias';
-        id = this.parametro
-      } else if (this.parametro.startsWith('r')) {
+        id = this.nuevoParametro
+      } else if (this.nuevoParametro.startsWith('r')) {
         tipo = 'resultados';
-        id = this.parametro;
+        id = this.nuevoParametro;
       }
       if (tipo && id) {
-        console.log(data)
+        console.log(json)
         let name = id.toUpperCase();
-        const info = data[tipo].find(item => item.nombre === name);
+        const info = json[tipo].find(item => item.nombre === name);
         console.log(info)
         if (info) {
           this.resultado = {
@@ -106,6 +142,14 @@ export default {
       } else {
         this.resultado = null;
       }
+    },
+    change(change) {
+      console.log('ejecutado en card')
+
+      this.nuevoParametro = change
+      console.log(this.change)
+      console.log(this.nuevoParametro)
+      this.obtenerInformacion()
     }
   },
 
@@ -139,8 +183,11 @@ export default {
 
 .containerw {
   display: flex;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 20px;
+  background-color: white
 }
 
 .left-panelw {
@@ -148,17 +195,14 @@ export default {
   background-image: url('../assets/fondoderecha.jpg'); 
   background-size: cover;
   background-position: center;
-  width: 100vw;
+  width: 60%;
   height: 100vh;
 
 }
 
 .right-panelw {
   padding: 20px;
-  background-image: url('../assets/fondoizquierda.jpg'); 
-  background-size: cover;
-  background-position: center;
-  width: 100vw;
+  width: 40%;
   height: 100vh;
 }
 

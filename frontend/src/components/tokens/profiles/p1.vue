@@ -1,38 +1,101 @@
 <template>
-    <v-card>
-        <v-layout column fill-height>
-      <!-- 10 filas con 10 columnas -->
-      <v-flex class="filas" v-for="fila in 10" :key="fila">
-        <v-layout row>
-          <v-flex class="columnas" v-for="columna in 10" :key="columna">
-            <v-card class="caja" color="white">
-              <v-card-text>
-                Caja {{ fila }}, {{ columna }}
-              </v-card-text>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-flex>
+  <v-container class="bg-surface-variant" style="width: 40%; border: 1px solid gray; border-radius: 10px;">
+    <v-row
+      no-gutters
+    >
+      <v-col>
+        <v-sheet class="pa-2 ma-1" style="background-color: transparent;">
+        </v-sheet>
+      </v-col>
 
-            <!-- Fila de abajo -->
-            <v-flex class="fila-abajo">
-        <v-layout justify-center align-center>
-          <v-flex xs12>
-            <v-card class="caja" color="grey darken-3">
-              <v-card-text>
-                Caja en la parte de abajo
-              </v-card-text>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
-    </v-card>
+      <v-col>
+        <v-sheet class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+          <strong>R1</strong>
+        </v-sheet>
+      </v-col>
+
+    </v-row>
+
+    <v-row
+      no-gutters
+    >
+      <v-col>
+        <v-sheet class="pa-2 ma-1" style="background-color: transparent; text-align: center;">
+        </v-sheet>
+      </v-col>
+
+      <v-col>
+        <v-sheet @click="change('r3')" class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+          <strong>R3</strong>
+        </v-sheet>
+      </v-col>
+
+    </v-row>
+
+    <v-row
+      no-gutters
+    >
+      <v-col>
+        <v-sheet class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+          <strong>R6</strong>
+        </v-sheet>
+      </v-col>
+
+      <v-col>
+        <v-sheet class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+          <strong>R5</strong>
+        </v-sheet>
+      </v-col>
+
+    </v-row>
+
+    <v-row
+      
+      no-gutters
+    >
+      <v-col>
+        <v-sheet class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+          <strong>R7</strong>
+        </v-sheet>
+      </v-col>
+
+      <v-col>
+        <v-sheet class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+          <strong>R6</strong>
+        </v-sheet>
+      </v-col>
+
+    </v-row>
+
+    <v-row
+      no-gutters
+    >
+      <v-col>
+        <v-sheet class="pa-2 ma-1" style="background-color: #DEEBF7; border: 1px solid gray; border-radius: 10px; text-align: center;">
+          <strong>C1</strong>
+        </v-sheet>
+      </v-col>
+
+      <v-col>
+        <v-sheet class="pa-2 ma-1" style="background-color: #DEEBF7; border: 1px solid gray; border-radius: 10px; text-align: center;">
+          <strong>C2</strong>
+        </v-sheet>
+      </v-col>
+
+    </v-row>
+
+    <v-row no-gutters>
+      <v-col cols="12">
+        <v-sheet class="pa-2 ma-1" style="background-color: #FFF2CC; border: 1px solid gray; border-radius: 10px; text-align: center;">
+          <strong>P1</strong>
+        </v-sheet>
+      </v-col>
+
+    </v-row>
+  </v-container>
   </template>
-  
   <script>
 
-import json from '../json/informacion.json'
 
   export default {
     name: 'CartaDinamica',
@@ -41,9 +104,14 @@ import json from '../json/informacion.json'
     },
     data() {
       return {
-        json: json.perfiles,
         perfilSeleccionado: null
       };
+    },
+    methods: {
+      change(change) {
+        console.log('ejecutado')
+      this.$emit('change', change)
+    },
     }
   };
   </script>
@@ -69,5 +137,10 @@ import json from '../json/informacion.json'
   padding: 20px;
   text-align: center;
 }
+
+
+/*FFF2CC amarillo 
+DEEBF7 azul
+E2F0D9 verde*/
   </style>
   
