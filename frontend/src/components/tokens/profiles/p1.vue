@@ -1,5 +1,5 @@
 <template>
-  <v-container class="bg-surface-variant" style="width: 40%; border: 1px solid gray; border-radius: 10px;">
+  <v-container class="bg-surface-variant" style="width: 60%; border: 1px solid gray; border-radius: 10px;">
     <v-row
       no-gutters
     >
@@ -9,7 +9,7 @@
       </v-col>
 
       <v-col>
-        <v-sheet class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+        <v-sheet class="pa-2 ma-1" @click="change('r1')" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
           <strong>R1</strong>
         </v-sheet>
       </v-col>
@@ -25,7 +25,7 @@
       </v-col>
 
       <v-col>
-        <v-sheet @click="change('r3')" class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+        <v-sheet @click="change('r3')" class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
           <strong>R3</strong>
         </v-sheet>
       </v-col>
@@ -36,13 +36,13 @@
       no-gutters
     >
       <v-col>
-        <v-sheet class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+        <v-sheet class="pa-2 ma-1" @click="change('r6')" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
           <strong>R6</strong>
         </v-sheet>
       </v-col>
 
       <v-col>
-        <v-sheet class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+        <v-sheet class="pa-2 ma-1" @click="change('r5')" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
           <strong>R5</strong>
         </v-sheet>
       </v-col>
@@ -54,13 +54,13 @@
       no-gutters
     >
       <v-col>
-        <v-sheet class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+        <v-sheet class="pa-2 ma-1" @click="change('r7')" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;" >
           <strong>R7</strong>
         </v-sheet>
       </v-col>
 
       <v-col>
-        <v-sheet class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center;">
+        <v-sheet class="pa-2 ma-1" @click="change('r6')" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
           <strong>R6</strong>
         </v-sheet>
       </v-col>
@@ -71,13 +71,13 @@
       no-gutters
     >
       <v-col>
-        <v-sheet class="pa-2 ma-1" style="background-color: #DEEBF7; border: 1px solid gray; border-radius: 10px; text-align: center;">
+        <v-sheet class="pa-2 ma-1" @click="change('c1')" style="background-color: #DEEBF7; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
           <strong>C1</strong>
         </v-sheet>
       </v-col>
 
       <v-col>
-        <v-sheet class="pa-2 ma-1" style="background-color: #DEEBF7; border: 1px solid gray; border-radius: 10px; text-align: center;">
+        <v-sheet class="pa-2 ma-1" @click="change('c2')" style="background-color: #DEEBF7; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
           <strong>C2</strong>
         </v-sheet>
       </v-col>
@@ -86,7 +86,7 @@
 
     <v-row no-gutters>
       <v-col cols="12">
-        <v-sheet class="pa-2 ma-1" style="background-color: #FFF2CC; border: 1px solid gray; border-radius: 10px; text-align: center;">
+        <v-sheet class="pa-2 ma-1" @click="change('p1')" style="background-color: #FFF2CC; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
           <strong>P1</strong>
         </v-sheet>
       </v-col>

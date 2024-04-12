@@ -5,6 +5,8 @@
       max-width="auto"
       persistent
     >
+    <transition name="fade">
+
     <div class="containerw">
     <div class="left-panelw">
       <v-card>
@@ -28,13 +30,19 @@
       </v-card-text>
     </v-card>
     </div>
+    <transition name="slide">
+
     <div class="right-panelw">
       <component :is="nuevoParametro" @change="change" />
     </div>
+  </transition>
+
     <v-btn @click="close" icon class="absolute top-0 right-0 m-2">
-      <v-icon>mdi-close</v-icon>
-    </v-btn>
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
 </div>
+</transition>
+
     </v-dialog>
 
    
@@ -187,14 +195,20 @@ export default {
   height: auto;
   overflow: hidden;
   padding: 20px;
-  background-color: white
+  background-color: white;
+  border-radius: 10px
+}
+
+.transition-enter-active, .transition-leave-active {
+  transition: opacity 0.5s;
+}
+
+.transition-enter, .transition-leave-to {
+  opacity: 0;
 }
 
 .left-panelw {
   padding: 20px;
-  background-image: url('../assets/fondoderecha.jpg'); 
-  background-size: cover;
-  background-position: center;
   width: 60%;
   height: 100vh;
 

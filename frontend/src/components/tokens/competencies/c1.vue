@@ -1,35 +1,83 @@
 <template>
-    <v-card>
-        <v-layout column fill-height>
-      <!-- 10 filas con 10 columnas -->
-      <v-flex class="filas" v-for="fila in 10" :key="fila">
-        <v-layout row>
-          <v-flex class="columnas" v-for="columna in 10" :key="columna">
-            <v-card class="caja" color="white">
-              <v-card-text>
-                Caja {{ fila }}, {{ columna }}
-              </v-card-text>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-flex>
+  <v-container class="bg-surface-variant" style="width: 60%; border: 1px solid gray; border-radius: 10px;">
 
-            <!-- Fila de abajo -->
-            <v-flex class="fila-abajo">
-        <v-layout justify-center align-center>
-          <v-flex xs12>
-            <v-card class="caja" color="grey darken-3">
-              <v-card-text>
-                Caja en la parte de abajo
-              </v-card-text>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
-    </v-card>
+    <v-row
+      
+      no-gutters
+    >
+      <v-col>
+        <v-sheet class="pa-2 ma-1" @click="change('r6')" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;" >
+          <strong>R6</strong>
+        </v-sheet>
+      </v-col>
+
+      <v-col>
+        <v-sheet class="pa-2 ma-1" @click="change('r7')" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
+          <strong>R7</strong>
+        </v-sheet>
+      </v-col>
+
+
+
+
+    </v-row>
+
+    <v-row
+      no-gutters
+    >
+      <v-col>
+        <v-sheet class="pa-2 ma-1" @click="change('c1')" style="background-color: #DEEBF7; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
+          <strong>C1</strong>
+        </v-sheet>
+      </v-col>
+
+
+
+
+    </v-row>
+
+    <v-row no-gutters>
+      <v-col cols="12">
+        <center><v-sheet class="pa-2 ma-1" @click="change('p1')" style="background-color: #FFF2CC; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer; width: 50%;">
+          <strong>P1</strong>
+        </v-sheet></center>
+      </v-col>
+
+    </v-row>
+    <v-row no-gutters>
+      <v-col cols="12">
+        <center><v-sheet class="pa-2 ma-1" style="background-color: #E4E4E4; border: 1px solid gray; border-radius: 10px; text-align: center; cursor:not-allowed; width: 50%;">
+          <strong><span class="mdi mdi-block-helper"></span></strong>
+        </v-sheet></center>
+      </v-col>
+
+    </v-row>
+    <v-row no-gutters>
+      <v-col cols="12">
+        <center><v-sheet class="pa-2 ma-1" style="background-color: #E4E4E4; border: 1px solid gray; border-radius: 10px; text-align: center; cursor:not-allowed; width: 50%;">
+          <strong><span class="mdi mdi-block-helper"></span></strong>
+        </v-sheet></center>
+      </v-col>
+
+    </v-row>
+    <v-row no-gutters>
+      <v-col cols="12">
+        <center><v-sheet class="pa-2 ma-1" style="background-color: #E4E4E4; border: 1px solid gray; border-radius: 10px; text-align: center; cursor:not-allowed; width: 50%;">
+          <strong><span class="mdi mdi-block-helper"></span></strong>
+        </v-sheet></center>
+      </v-col>
+
+    </v-row>
+    <v-row no-gutters>
+      <v-col cols="12">
+        <center><v-sheet class="pa-2 ma-1" style="background-color: #E4E4E4; border: 1px solid gray; border-radius: 10px; text-align: center; cursor:not-allowed; width: 50%;">
+          <strong><span class="mdi mdi-block-helper"></span></strong>
+        </v-sheet></center>
+      </v-col>
+
+    </v-row>
+  </v-container>
   </template>
-  
   <script>
 
 
@@ -42,6 +90,12 @@
       return {
         perfilSeleccionado: null
       };
+    },
+    methods: {
+      change(change) {
+        console.log('ejecutado')
+      this.$emit('change', change)
+    },
     }
   };
   </script>
@@ -67,5 +121,10 @@
   padding: 20px;
   text-align: center;
 }
+
+
+/*FFF2CC amarillo 
+DEEBF7 azul
+E2F0D9 verde*/
   </style>
   
