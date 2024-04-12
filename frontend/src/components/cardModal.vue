@@ -10,20 +10,29 @@
     <div class="containerw">
     <div class="left-panelw">
       <v-card>
-      <v-card-title>
-        Información del Parámetro
+      <v-card-title >
+        <h1 style="color: gray; margin-left: 20px;">
+          Información
+        </h1>
       </v-card-title>
       <v-card-text>
         <v-container>
           <v-row>
             <v-col cols="12">
-              {{ nuevoParametro }}
+              <v-col>
+        <v-sheet class="pa-2 ma-1" :style="getBackgroundColor(nuevoParametro)" style="background-color: #FFF2CC; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer; text-transform: uppercase;
+">
+          <strong>{{ nuevoParametro }}
+</strong>
+        </v-sheet>
+      </v-col>
+
             </v-col>
           </v-row>
-          <v-row v-if="resultado">
+          <v-row v-if="resultado" style="background-color: #ececec; border-radius: 20px;">
             <v-col cols="12">
-              <h3>Nombre: {{ resultado.nombre }}</h3>
-              <p>Descripción: {{ resultado.descripcion }}</p>
+              <br>
+              <p class="descripcion"> {{ resultado.descripcion }}</p>
             </v-col>
           </v-row>
         </v-container>
@@ -158,6 +167,27 @@ export default {
       console.log(this.change)
       console.log(this.nuevoParametro)
       this.obtenerInformacion()
+    },
+    getBackgroundColor(parametro) {
+      // Obtener el primer carácter del parámetro
+      const primerCaracter = parametro.charAt(0);
+      // Definir el color según el primer carácter
+      let colorFondo = '#FFFFF'; // Color por defecto
+      switch (primerCaracter) {
+        case 'p':
+          colorFondo = '#FFF2CC'; 
+          break;
+        case 'c':
+          colorFondo = '#DEEBF7'; // Azul claro
+          break;
+        case 'r':
+          colorFondo = '#E2F0D9'
+        // Añade más casos según sea necesario
+      }
+      // Retornar el objeto de estilo con el color de fondo dinámico
+      return {
+        backgroundColor: colorFondo
+      };
     }
   },
 
@@ -188,12 +218,19 @@ export default {
 }
 
 
+.descripcion {
+  font-size: 18pt;
+  line-height: 1.5;
+
+
+}
 
 .containerw {
   display: flex;
   width: 100%;
-  height: auto;
+  height: 70vh;
   overflow: hidden;
+  overflow-y: hidden;
   padding: 20px;
   background-color: white;
   border-radius: 10px
@@ -208,16 +245,22 @@ export default {
 }
 
 .left-panelw {
+  background-size: cover;
   padding: 20px;
   width: 60%;
   height: 100vh;
+  border-radius: 20px;
 
 }
 
 .right-panelw {
   padding: 20px;
   width: 40%;
-  height: 100vh;
+  background-image: url('../assets/fondomodal.jpg');
+  background-size: cover;
+  border-radius: 20px;
+
+  height: 50vh;
 }
 
 

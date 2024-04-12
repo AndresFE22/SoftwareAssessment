@@ -1,5 +1,5 @@
 <template>
-  <v-container class="bg-surface-variant" style="width: 60%; border: 1px solid gray; border-radius: 10px;">
+  <v-container class="container" style="width: 60%; border: 10px solid rgb(209, 209, 209); border-radius: 10px;">
 
 
     <v-row
