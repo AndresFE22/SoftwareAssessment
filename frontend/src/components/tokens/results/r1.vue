@@ -1,5 +1,5 @@
 <template>
-  <v-container class="container" style="width: 60%; border: 10px solid rgb(209, 209, 209); border-radius: 10px;">
+  <v-container class="container" style="width: 70%; border: 10px solid rgb(209, 209, 209); border-radius: 10px;">
     <v-row
       no-gutters
     >

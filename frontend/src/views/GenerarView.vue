@@ -3,9 +3,10 @@
 
 
 <div class="movil"  v-if="$vuetify.breakpoint.xsOnly">
+<div class="text">  <h1>RUTA GENERAL DE APRENDIZAJE</h1>
+</div>
   <div class="diagrama">
-
-  <svg width="800" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
+  <svg width="800" style="background-color: white" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
       <image href="../assets/lineasmovil.png" width="400" height="500" />
       <g>
         <rect 
@@ -270,9 +271,11 @@
 
 
 <div class="movil"  v-if="$vuetify.breakpoint.smOnly">
+  <div class="text">  <h1>RUTA GENERAL DE APRENDIZAJE</h1>
+</div>
   <div class="diagrama">
 
-  <svg width="800" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
+  <svg width="800" style="background-color: white" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
       <image href="../assets/lineasmovil.png" width="700" height="500" />
       <g>
         <rect 
@@ -538,9 +541,11 @@
 
 
 <div class="movil"  v-if="$vuetify.breakpoint.mdOnly">
+  <div class="text">  <h1>RUTA GENERAL DE APRENDIZAJE</h1>
+</div>
   <div class="diagrama">
 
-  <svg width="800" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
+  <svg width="800" style="background-color: white" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
       <image href="../assets/lineasmovil.png" width="700" height="500" />
       <g>
         <rect 
@@ -803,8 +808,11 @@
   </div>
 </div>
 
-<div class="pc" v-else>
+<div class="pc" v-if="$vuetify.breakpoint.lgAndUp" >
+  <div class="text">  <h1>RUTA GENERAL DE APRENDIZAJE</h1>
+</div>
   <div class="diagrama">
+
 <div class="svg">
   <svg width="800" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
       <image href="../assets/lienas.png" width="800" height="500"/>
@@ -1126,6 +1134,14 @@
   width: 100%;
   background-image: url('../assets/fondoGeneral.svg');
   background-size: cover;
+
+}
+
+.text {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center
 
 }
 

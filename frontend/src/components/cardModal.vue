@@ -4,7 +4,62 @@
     v-model="dialog"
       max-width="auto"
       persistent
-    >
+      v-if="$vuetify.breakpoint.mdAndDown"    >
+    <transition name="fade">
+
+    <div class="container">
+    <div class="left-panel">
+      <v-card>
+      <v-card-title >
+        <h1 style="color: gray; margin-left: 20px;">
+          Información
+        </h1>
+      </v-card-title>
+      <v-card-text>
+        <v-container>
+          <v-row>
+            <v-col cols="12">
+              <v-col>
+        <v-sheet class="pa-2 ma-1" :style="getBackgroundColor(nuevoParametro)" style="background-color: #FFF2CC; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer; text-transform: uppercase;
+">
+          <strong>{{ nuevoParametro }}
+</strong>
+        </v-sheet>
+      </v-col>
+
+            </v-col>
+          </v-row>
+          <v-row v-if="resultado" style="background-color: #ececec; border-radius: 20px;">
+            <v-col cols="12">
+              <br>
+              <p class="descripcion"> {{ resultado.descripcion }}</p>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card-text>
+    </v-card>
+    </div>
+    <transition name="slide">
+
+    <div class="right-panel">
+      <component :is="nuevoParametro" @change="change" />
+    </div>
+  </transition>
+
+    <v-btn @click="close" icon class="absolute top-0 right-0 m-2">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+</div>
+</transition>
+
+    </v-dialog>
+
+
+    <v-dialog
+    v-model="dialog"
+      max-width="auto"
+      persistent
+      v-else>
     <transition name="fade">
 
     <div class="containerw">
@@ -236,6 +291,13 @@ export default {
   border-radius: 10px
 }
 
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  height: auto;
+  overflow: auto
+}
+
 .transition-enter-active, .transition-leave-active {
   transition: opacity 0.5s;
 }
@@ -260,6 +322,11 @@ export default {
   border-radius: 20px;
 
   height: 50vh;
+}
+
+
+.right-panel {
+  margin-bottom: 20px;
 }
 
 
