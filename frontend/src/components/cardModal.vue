@@ -228,7 +228,7 @@ export default {
 .containerw {
   display: flex;
   width: 100%;
-  height: 70vh;
+  height: 90vh;
   overflow: hidden;
   overflow-y: hidden;
   padding: 20px;
@@ -256,8 +256,7 @@ export default {
 .right-panelw {
   padding: 20px;
   width: 40%;
-  background-image: url('../assets/fondomodal.jpg');
-  background-size: cover;
+
   border-radius: 20px;
 
   height: 50vh;

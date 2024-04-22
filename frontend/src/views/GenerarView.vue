@@ -1,14 +1,8 @@
 <template>
     <div>
-      <div class="custom-shape-divider-top-1712937765">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-    </svg>
-</div>
 
-<div class="movil"  v-if="$vuetify.breakpoint.smAndDown">
+
+<div class="movil"  v-if="$vuetify.breakpoint.xsOnly">
   <div class="diagrama">
 
   <svg width="800" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
@@ -259,13 +253,280 @@
 
 
 
-        <text x="380" y="450" class="texto-rectangulo" @click="openModal('r1')">R1</text>
-        <text x="330" y="450" class="texto-rectangulo" @click="openModal('r2')">R2</text>
-        <text x="253" y="450" class="texto-rectangulo" @click="openModal('r3')">R3</text>
+        <text x="380" y="450" class="texto-rectangulo" @click="openModal('r7')">R7</text>
+        <text x="330" y="450" class="texto-rectangulo" @click="openModal('r6')">R6</text>
+        <text x="253" y="450" class="texto-rectangulo" @click="openModal('r5')">R5</text>
         <text x="175" y="450" class="texto-rectangulo" @click="openModal('r4')">R4</text>
-        <text x="127" y="450" class="texto-rectangulo" @click="openModal('r5')">R5</text>
-        <text x="82" y="450" class="texto-rectangulo" @click="openModal('r6')">R6</text>
-        <text x="37" y="450" class="texto-rectangulo" @click="openModal('r7')">R7</text>
+        <text x="127" y="450" class="texto-rectangulo" @click="openModal('r3')">R3</text>
+        <text x="82" y="450" class="texto-rectangulo" @click="openModal('r2')">R2</text>
+        <text x="37" y="450" class="texto-rectangulo" @click="openModal('r1')">R1</text>
+
+      </g>
+    </svg>
+
+
+  </div>
+</div>
+
+
+<div class="movil"  v-if="$vuetify.breakpoint.smOnly">
+  <div class="diagrama">
+
+  <svg width="800" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
+      <image href="../assets/lineasmovil.png" width="700" height="500" />
+      <g>
+        <rect 
+          x="162" 
+          y="0" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="p-rectangulo" 
+          stroke="gray"
+          @click="openModal('p1')"
+        />
+        <rect 
+          x="220" 
+          y="0" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="p-rectangulo" 
+          stroke="gray"
+          @click="openModal('p2')"
+        />
+
+        <rect 
+          x="283" 
+          y="0" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="p-rectangulo" 
+          stroke="gray"
+          @click="openModal('p3')"
+        />
+
+        <rect 
+          x="378" 
+          y="0" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="p-rectangulo" 
+          stroke="gray"
+          @click="openModal('p4')"
+        />
+
+        <rect 
+          x="504" 
+          y="0" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="p-rectangulo" 
+          stroke="gray"
+          @click="openModal('p5')"
+        />
+
+
+
+        <rect 
+          x="168" 
+          y="205" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="c-rectangulo" 
+          stroke="gray"
+          @click="openModal('c1')"
+        />
+        <rect 
+          x="222" 
+          y="205" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="c-rectangulo" 
+          stroke="gray"
+          @click="openModal('c2')"
+        />
+
+        <rect 
+          x="285" 
+          y="205" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="c-rectangulo" 
+          stroke="gray"
+          @click="openModal('c3')"
+        />
+
+        <rect 
+          x="348" 
+          y="205" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="c-rectangulo" 
+          stroke="gray"
+          @click="openModal('c4')"
+        />
+
+        <rect 
+          x="413" 
+          y="205" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="c-rectangulo" 
+          stroke="gray"
+          @click="openModal('c5')"
+        />
+        
+        <rect 
+          x="475" 
+          y="205" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="c-rectangulo" 
+          stroke="gray"
+          @click="openModal('c6')"
+        />
+
+        <rect 
+          x="538"
+          y="205" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="c-rectangulo" 
+          stroke="gray"
+          @click="openModal('c7')"
+        />
+
+        <rect 
+          x="132" 
+          y="470" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="r-rectangulo" 
+          stroke="gray"
+          @click="openModal('r1')"
+        />
+        <rect 
+          x="187" 
+          y="470" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="r-rectangulo" 
+          stroke="gray"
+          @click="openModal('r2')"
+        />
+
+        <rect 
+          x="245" 
+          y="470" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="r-rectangulo" 
+          stroke="gray"
+          @click="openModal('r3')"
+        />
+
+        <rect 
+          x="307" 
+          y="470" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="r-rectangulo" 
+          stroke="gray"
+          @click="openModal('r4')"
+        />
+
+        <rect 
+          x="402" 
+          y="470" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="r-rectangulo" 
+          stroke="gray"
+          @click="openModal('r5')"
+        />
+        
+        <rect 
+          x="498" 
+          y="470" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="r-rectangulo" 
+          stroke="gray"
+          @click="openModal('r6')"
+        />
+
+        <rect 
+          x="563" 
+          y="470" 
+          width="30" 
+          height="30"
+          rx="10"
+          ry="10" 
+          class="r-rectangulo" 
+          stroke="gray"
+          @click="openModal('r7')"
+        />
+
+        <text x="177" y="20" class="texto-rectangulo" @click="openModal('p1')"
+>P1</text>
+        <text x="235" y="20" class="texto-rectangulo" @click="openModal('p2')">P2</text>
+        <text x="300" y="20" class="texto-rectangulo" @click="openModal('p3')">P3</text>
+        <text x="395" y="20" class="texto-rectangulo" @click="openModal('p4')">P4</text>
+        <text x="520" y="20" class="texto-rectangulo" @click="openModal('p5')">P5</text>
+
+
+        <text x="183" y="225" class="texto-rectangulo" @click="openModal('c1')">C1</text>
+        <text x="237" y="225" class="texto-rectangulo" @click="openModal('c2')">C2</text>
+        <text x="299" y="225" class="texto-rectangulo" @click="openModal('c3')">C3</text>
+        <text x="363" y="225" class="texto-rectangulo" @click="openModal('c4')">C4</text>
+        <text x="428" y="225" class="texto-rectangulo" @click="openModal('c5')">C5</text>
+        <text x="491" y="225" class="texto-rectangulo" @click="openModal('c6')">C6</text>
+        <text x="555" y="225" class="texto-rectangulo" @click="openModal('c7')">C7</text>3
+
+
+
+        <text x="580" y="489" class="texto-rectangulo" @click="openModal('r7')">R7</text>
+        <text x="513" y="489" class="texto-rectangulo" @click="openModal('r6')">R6</text>
+        <text x="416" y="489" class="texto-rectangulo" @click="openModal('r5')">R5</text>
+        <text x="321" y="489" class="texto-rectangulo" @click="openModal('r4')">R4</text>
+        <text x="260" y="489" class="texto-rectangulo" @click="openModal('r3')">R3</text>
+        <text x="202" y="489" class="texto-rectangulo" @click="openModal('r2')">R2</text>
+        <text x="146" y="489" class="texto-rectangulo" @click="openModal('r1')">R1</text>
 
       </g>
     </svg>
@@ -276,15 +537,15 @@
 
 
 
-<div class="tablet"  v-else-if="$vuetify.breakpoint.mdOnly">
+<div class="movil"  v-if="$vuetify.breakpoint.mdOnly">
   <div class="diagrama">
 
   <svg width="800" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
-      <image href="../assets/lineasmovil.png" width="400" height="500" />
+      <image href="../assets/lineasmovil.png" width="700" height="500" />
       <g>
         <rect 
-          x="100" 
-          y="40" 
+          x="162" 
+          y="0" 
           width="30" 
           height="30"
           rx="10"
@@ -294,8 +555,8 @@
           @click="openModal('p1')"
         />
         <rect 
-          x="93" 
-          y="40" 
+          x="220" 
+          y="0" 
           width="30" 
           height="30"
           rx="10"
@@ -306,8 +567,8 @@
         />
 
         <rect 
-          x="143" 
-          y="40" 
+          x="283" 
+          y="0" 
           width="30" 
           height="30"
           rx="10"
@@ -318,8 +579,8 @@
         />
 
         <rect 
-          x="218" 
-          y="40" 
+          x="378" 
+          y="0" 
           width="30" 
           height="30"
           rx="10"
@@ -330,8 +591,8 @@
         />
 
         <rect 
-          x="320" 
-          y="40" 
+          x="504" 
+          y="0" 
           width="30" 
           height="30"
           rx="10"
@@ -344,7 +605,7 @@
 
 
         <rect 
-          x="48" 
+          x="168" 
           y="205" 
           width="30" 
           height="30"
@@ -355,7 +616,7 @@
           @click="openModal('c1')"
         />
         <rect 
-          x="92" 
+          x="222" 
           y="205" 
           width="30" 
           height="30"
@@ -367,7 +628,7 @@
         />
 
         <rect 
-          x="143" 
+          x="285" 
           y="205" 
           width="30" 
           height="30"
@@ -379,7 +640,7 @@
         />
 
         <rect 
-          x="193" 
+          x="348" 
           y="205" 
           width="30" 
           height="30"
@@ -391,7 +652,7 @@
         />
 
         <rect 
-          x="245" 
+          x="413" 
           y="205" 
           width="30" 
           height="30"
@@ -403,7 +664,7 @@
         />
         
         <rect 
-          x="295" 
+          x="475" 
           y="205" 
           width="30" 
           height="30"
@@ -415,7 +676,7 @@
         />
 
         <rect 
-          x="348"
+          x="538"
           y="205" 
           width="30" 
           height="30"
@@ -427,8 +688,8 @@
         />
 
         <rect 
-          x="22" 
-          y="430" 
+          x="132" 
+          y="470" 
           width="30" 
           height="30"
           rx="10"
@@ -438,8 +699,8 @@
           @click="openModal('r1')"
         />
         <rect 
-          x="67" 
-          y="430" 
+          x="187" 
+          y="470" 
           width="30" 
           height="30"
           rx="10"
@@ -450,8 +711,8 @@
         />
 
         <rect 
-          x="112" 
-          y="430" 
+          x="245" 
+          y="470" 
           width="30" 
           height="30"
           rx="10"
@@ -462,8 +723,8 @@
         />
 
         <rect 
-          x="160" 
-          y="430" 
+          x="307" 
+          y="470" 
           width="30" 
           height="30"
           rx="10"
@@ -474,8 +735,8 @@
         />
 
         <rect 
-          x="238" 
-          y="430" 
+          x="402" 
+          y="470" 
           width="30" 
           height="30"
           rx="10"
@@ -486,8 +747,8 @@
         />
         
         <rect 
-          x="315" 
-          y="430" 
+          x="498" 
+          y="470" 
           width="30" 
           height="30"
           rx="10"
@@ -498,8 +759,8 @@
         />
 
         <rect 
-          x="365" 
-          y="430" 
+          x="563" 
+          y="470" 
           width="30" 
           height="30"
           rx="10"
@@ -509,31 +770,31 @@
           @click="openModal('r7')"
         />
 
-        <text x="64" y="60" class="texto-rectangulo" @click="openModal('p1')"
+        <text x="177" y="20" class="texto-rectangulo" @click="openModal('p1')"
 >P1</text>
-        <text x="109" y="60" class="texto-rectangulo" @click="openModal('p2')">P2</text>
-        <text x="158" y="60" class="texto-rectangulo" @click="openModal('p3')">P3</text>
-        <text x="234" y="60" class="texto-rectangulo" @click="openModal('p4')">P4</text>
-        <text x="335" y="60" class="texto-rectangulo" @click="openModal('p5')">P5</text>
+        <text x="235" y="20" class="texto-rectangulo" @click="openModal('p2')">P2</text>
+        <text x="300" y="20" class="texto-rectangulo" @click="openModal('p3')">P3</text>
+        <text x="395" y="20" class="texto-rectangulo" @click="openModal('p4')">P4</text>
+        <text x="520" y="20" class="texto-rectangulo" @click="openModal('p5')">P5</text>
 
 
-        <text x="63" y="225" class="texto-rectangulo" @click="openModal('c1')">C1</text>
-        <text x="107" y="225" class="texto-rectangulo" @click="openModal('c2')">C2</text>
-        <text x="158" y="225" class="texto-rectangulo" @click="openModal('c3')">C3</text>
-        <text x="208" y="225" class="texto-rectangulo" @click="openModal('c4')">C4</text>
-        <text x="260" y="225" class="texto-rectangulo" @click="openModal('c5')">C5</text>
-        <text x="310" y="225" class="texto-rectangulo" @click="openModal('c6')">C6</text>
-        <text x="365" y="225" class="texto-rectangulo" @click="openModal('c7')">C7</text>3
+        <text x="183" y="225" class="texto-rectangulo" @click="openModal('c1')">C1</text>
+        <text x="237" y="225" class="texto-rectangulo" @click="openModal('c2')">C2</text>
+        <text x="299" y="225" class="texto-rectangulo" @click="openModal('c3')">C3</text>
+        <text x="363" y="225" class="texto-rectangulo" @click="openModal('c4')">C4</text>
+        <text x="428" y="225" class="texto-rectangulo" @click="openModal('c5')">C5</text>
+        <text x="491" y="225" class="texto-rectangulo" @click="openModal('c6')">C6</text>
+        <text x="555" y="225" class="texto-rectangulo" @click="openModal('c7')">C7</text>3
 
 
 
-        <text x="380" y="450" class="texto-rectangulo" @click="openModal('r1')">R1</text>
-        <text x="330" y="450" class="texto-rectangulo" @click="openModal('r2')">R2</text>
-        <text x="253" y="450" class="texto-rectangulo" @click="openModal('r3')">R3</text>
-        <text x="175" y="450" class="texto-rectangulo" @click="openModal('r4')">R4</text>
-        <text x="127" y="450" class="texto-rectangulo" @click="openModal('r5')">R5</text>
-        <text x="82" y="450" class="texto-rectangulo" @click="openModal('r6')">R6</text>
-        <text x="37" y="450" class="texto-rectangulo" @click="openModal('r7')">R7</text>
+        <text x="580" y="489" class="texto-rectangulo" @click="openModal('r7')">R7</text>
+        <text x="513" y="489" class="texto-rectangulo" @click="openModal('r6')">R6</text>
+        <text x="416" y="489" class="texto-rectangulo" @click="openModal('r5')">R5</text>
+        <text x="321" y="489" class="texto-rectangulo" @click="openModal('r4')">R4</text>
+        <text x="260" y="489" class="texto-rectangulo" @click="openModal('r3')">R3</text>
+        <text x="202" y="489" class="texto-rectangulo" @click="openModal('r2')">R2</text>
+        <text x="146" y="489" class="texto-rectangulo" @click="openModal('r1')">R1</text>
 
       </g>
     </svg>
