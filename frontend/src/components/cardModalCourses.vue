@@ -31,9 +31,15 @@
           </v-row>
           <v-row v-if="resultado" style="background-color: #ececec; border-radius: 20px;">
             <v-col cols="12">
-              <br>
-              <p class="descripcion"> {{ resultado.descripcion }}</p>
-            </v-col>
+              <p class="titulo">CURSO</p>
+      <p class="codigo">{{ resultado.codigo }}</p>
+      <p class="nombre">{{ resultado.nombre }}</p>
+      <p class="codigo-comp" v-if="mostrarCodigoComp" >{{ resultado.codigo_comp }}</p>
+      <p class="descripcion" v-if="mostrarCompetencia">{{ resultado.competencia }}</p>
+      <p class="codigo-comp" v-if="mostrarClaveRa">{{ obtenerClaveRa(ra) }}</p>
+      <p class="descripcion" v-if="mostrarContenidoRa">{{ obtenerContenidoRa(ra) }}</p>
+      
+    </v-col>
           </v-row>
         </v-container>
       </v-card-text>
@@ -42,11 +48,11 @@
     <transition name="slide">
 
     <div class="right-panel">
-      <component :is="nuevoParametro" @change="change" />
+      <component :is="card" @change="change" />
     </div>
   </transition>
 
-    <v-btn @click="close" icon class="absolute top-0 right-0 m-2">
+    <v-btn @click="closec" icon class="absolute top-0 right-0 m-2">
             <v-icon>mdi-close</v-icon>
           </v-btn>
 </div>
@@ -75,20 +81,20 @@
           <v-row>
             <v-col cols="12">
               <v-col>
-        <v-sheet class="pa-2 ma-1" :style="getBackgroundColor(nuevoParametro)" style="background-color: #FFF2CC; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer; text-transform: uppercase;
-">
-          <strong>{{ nuevoParametro }}
-</strong>
-        </v-sheet>
       </v-col>
 
             </v-col>
           </v-row>
           <v-row v-if="resultado" style="background-color: #ececec; border-radius: 20px;">
             <v-col cols="12">
-              <br>
-              <p class="descripcion"> {{ resultado.descripcion }}</p>
-            </v-col>
+      <p class="titulo">CURSO</p>
+      <p class="codigo">{{ resultado.codigo }}</p>
+      <p class="nombre">{{ resultado.nombre }}</p>
+      <p class="codigo-comp" v-if="mostrarCodigoComp" >{{ resultado.codigo_comp }}</p>
+      <p class="descripcion" v-if="mostrarCompetencia">{{ resultado.competencia }}</p>
+      <p class="codigo-comp" v-if="mostrarClaveRa">{{ obtenerClaveRa(ra) }}</p>
+      <p class="descripcion" v-if="mostrarContenidoRa">{{ obtenerContenidoRa(ra) }}</p>
+    </v-col>
           </v-row>
         </v-container>
       </v-card-text>
@@ -97,11 +103,11 @@
     <transition name="slide">
 
     <div class="right-panelw">
-      <component :is="nuevoParametro" @change="change" />
+      <component :is="card" @change="change" />
     </div>
   </transition>
 
-    <v-btn @click="close" icon class="absolute top-0 right-0 m-2">
+    <v-btn @click="closec" icon class="absolute top-0 right-0 m-2">
             <v-icon>mdi-close</v-icon>
           </v-btn>
 </div>
@@ -114,13 +120,12 @@
 </template>
 
 <script>
-import p1 from './tokens/profiles/p1.vue';
 import p2 from './tokens/profiles/p2.vue';
 import p3 from './tokens/profiles/p3.vue';
 import p4 from './tokens/profiles/p4.vue';
 import p5 from './tokens/profiles/p5.vue';
-import c1 from './tokens/competencies/c1.vue';
-import c2 from './tokens/competencies/c2.vue';
+import c1 from './tokens/courses/c1.vue';
+import c2 from './tokens/courses/c2.vue';
 import c3 from './tokens/competencies/c3.vue';
 import c4 from './tokens/competencies/c4.vue';
 import c5 from './tokens/competencies/c5.vue';
@@ -141,8 +146,8 @@ import json from '../json/informacion.json'
 export default {
   components: {
     
-    p1,p2,p3,p4,p5,
-    c1,c2,c3,c4,c5,c6,c7,
+    c1,p2,p3,p4,p5,
+    c2,c3,c4,c5,c6,c7,
     r1,r2,r3,r4,r5,r6,r7
     },
   props: {
@@ -157,11 +162,18 @@ export default {
     return {
       dialog: true,
       resultado: null,
-      nuevoParametro: ''
+      nuevoParametro: '',
+      card: null,
+      mostrarCodigoComp: true,
+      mostrarCompetencia: true,
+      mostrarClaveRa: false,
+      mostrarContenidoRa: false,
+      ra: null
 
 
     }
   },
+
   mounted() {
     this.update()
 
@@ -175,38 +187,33 @@ export default {
       this.nuevoParametro = this.parametro;
 
     },
-    close() {
-      this.$emit('close')
+    closec() {
+      this.$emit('closec')
     },
     prueba() {
       console.log("funciona")
     },
     obtenerInformacion() {
-
-      let tipo = null;
-      let id = null;
+      if (this.nuevoParametro == '203437') {
+        this.card = 'c1'
+      } else if ( this.nuevoParametro == '203458') {
+        this.card = 'c2'
+      }
+      let tipo = 'cursos';
+      let id = this.nuevoParametro;
       console.log('nuevo en funcion obtener',this.nuevoParametro)
 
-      if (this.nuevoParametro.startsWith('p')) {
-        tipo = 'perfiles';
-        id = this.nuevoParametro
-        console.log(tipo, id)
-      } else if (this.nuevoParametro.startsWith('c')) {
-        tipo = 'competencias';
-        id = this.nuevoParametro
-      } else if (this.nuevoParametro.startsWith('r')) {
-        tipo = 'resultados';
-        id = this.nuevoParametro;
-      }
       if (tipo && id) {
         console.log(json)
-        let name = id.toUpperCase();
-        const info = json[tipo].find(item => item.nombre === name);
+        const info = json[tipo].find(item => item.codigo === id);
         console.log(info)
         if (info) {
           this.resultado = {
+            codigo: info.codigo,
             nombre: info.nombre,
-            descripcion: info.descripcion
+            codigo_comp: info.codigo_comp,
+            competencia: info.competencia,
+            RA: info.RA,
           };
         } else {
           this.resultado = null;
@@ -215,14 +222,45 @@ export default {
         this.resultado = null;
       }
     },
-    change(change) {
-      console.log('ejecutado en card')
 
-      this.nuevoParametro = change
-      console.log(this.change)
-      console.log(this.nuevoParametro)
-      this.obtenerInformacion()
+    obtenerClaveRa(ra) {
+      return ra.split(":")[0];
     },
+    obtenerContenidoRa(ra) {
+      return ra.split(":")[1];
+    },
+    change(change) {
+      if (change == 'RA-203437-U1') {
+        this.ra = this.resultado.RA['RA-203437-U1']
+        console.log('ra',this.ra)
+        console.log('ra',this.resultado.RA)
+        this.activatep()
+
+      } else if (change == 'RA-203437-U2') {
+        this.ra = this.resultado.RA['RA-203437-U2']
+        this.activatep()
+
+      } else if (change == 'RA-203437-U3') {
+        this.ra = this.resultado.RA['RA-203437-U3']
+        this.activatep()
+
+      } else if (change == 'RA-203437') {
+        this.ra = this.resultado.RA['RA-203437']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+
+      }
+
+    },
+
+    activatep() {
+      this.mostrarCodigoComp = false
+        this.mostrarCompetencia = false
+        this.mostrarClaveRa = true
+        this.mostrarContenidoRa = true
+    },
+
     getBackgroundColor(parametro) {
       // Obtener el primer carácter del parámetro
       const primerCaracter = parametro.charAt(0);
@@ -273,11 +311,45 @@ export default {
 }
 
 
+.titulo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  color: rgb(0, 121, 235)
+
+}
+
+.codigo {
+  font-size: 20px;
+  color: #d30000;
+  text-align: center;
+  font-weight: bold
+
+}
+
+.nombre {
+  font-size: 24px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold
+
+}
+
+.codigo-comp {
+  font-size: 16px;
+  color: #555555;
+  margin-top: 5px;
+  text-align: center;
+  font-weight: bold
+
+
+}
+
 .descripcion {
-  font-size: 18pt;
-  line-height: 1.5;
-
-
+  font-size: 18px;
+  color: #575757;
+  margin-top: 20px;
 }
 
 .containerw {
@@ -326,7 +398,7 @@ export default {
 
 
 .right-panel {
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
 

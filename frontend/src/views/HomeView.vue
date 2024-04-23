@@ -18,7 +18,7 @@
                 <img src="../assets/logoassesment.jpg" alt="Logo 3" class="center-logo">
                 <div class="bottom-block">
                 </div>       
-                <h3 class="text-center mt-4" style="color: #757575;">Medir, analizar y mejorar: el camino hacia la excelencia a través del plan de evaluación.</h3>
+                <h3 class="text-center mt-4" style="color: #757575;">Visualización de alineación de resultados de aprendizaje.</h3>
       </v-card-text>
               <div class="buttom">
         <button @click="entrar" class="animated-button">
@@ -51,7 +51,7 @@
       </div>
       <img src="../assets/logoassesment.jpg" alt="Logo 3" class="center-logow">
       <div class="bottom-blockw"></div>
-      <h3 class="text-center mt-4" style="color: #757575;">Medir, analizar y mejorar: el camino hacia la excelencia a través del plan de evaluación.</h3>
+      <h3 class="text-center mt-4" style="color: #757575;">Visualización de alineación de resultados de aprendizaje.</h3>
       <div class="buttomw">
         <button @click="entrar" class="animated-button">
           <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
