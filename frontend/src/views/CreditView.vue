@@ -89,7 +89,7 @@
         colaboradores: [
           { id: 1, nombre: 'Manuel Fernando Caro Piñeres' },
           { id: 2, nombre: 'Danilsa Del Carmen Lorduy Arellano' },
-          { id: 2, nombre: 'Isabel Cristina Muñoz Sierra' },
+          { id: 2, nombre: 'Isabel Cristina Muñoz Vargas' },
         ],
         logos: [
           { id: 1, url: '../assets/UNICOR.png' },

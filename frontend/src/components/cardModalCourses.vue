@@ -90,6 +90,8 @@
       <p class="titulo">CURSO</p>
       <p class="codigo">{{ resultado.codigo }}</p>
       <p class="nombre">{{ resultado.nombre }}</p>
+      <!-- <p class="nombre">{{ resultadoAprendizajeFiltro.nombre }}</p>
+      <p class="descripcion">{{ resultadoAprendizajeFiltro.descripcion }}</p> -->
       <p class="codigo-comp" v-if="mostrarCodigoComp" >{{ resultado.codigo_comp }}</p>
       <p class="descripcion" v-if="mostrarCompetencia">{{ resultado.competencia }}</p>
       <p class="codigo-comp" v-if="mostrarClaveRa">{{ obtenerClaveRa(ra) }}</p>
@@ -120,17 +122,12 @@
 </template>
 
 <script>
-import p2 from './tokens/profiles/p2.vue';
-import p3 from './tokens/profiles/p3.vue';
-import p4 from './tokens/profiles/p4.vue';
-import p5 from './tokens/profiles/p5.vue';
+
 import c1 from './tokens/courses/c1.vue';
 import c2 from './tokens/courses/c2.vue';
 import c3 from './tokens/competencies/c3.vue';
 import c4 from './tokens/competencies/c4.vue';
-import c5 from './tokens/competencies/c5.vue';
-import c6 from './tokens/competencies/c6.vue';
-import c7 from './tokens/competencies/c7.vue';
+
 import r1 from './tokens/results/r1.vue';
 import r2 from './tokens/results/r2.vue';
 import r3 from './tokens/results/r3.vue';
@@ -146,9 +143,7 @@ import json from '../json/informacion.json'
 export default {
   components: {
     
-    c1,p2,p3,p4,p5,
-    c2,c3,c4,c5,c6,c7,
-    r1,r2,r3,r4,r5,r6,r7
+    c1,c2,c3,c4,r1,r2,r3,r4,r5,r6,r7
     },
   props: {
     parametro: {
@@ -168,7 +163,9 @@ export default {
       mostrarCompetencia: true,
       mostrarClaveRa: false,
       mostrarContenidoRa: false,
-      ra: null
+      ra: null,
+      resultadoAprendizaje: null,
+      resultadoAprendizajeFiltro: null
 
 
     }
@@ -194,34 +191,70 @@ export default {
       console.log("funciona")
     },
     obtenerInformacion() {
-      if (this.nuevoParametro == '203437') {
-        this.card = 'c1'
-      } else if ( this.nuevoParametro == '203458') {
-        this.card = 'c2'
-      }
-      let tipo = 'cursos';
-      let id = this.nuevoParametro;
-      console.log('nuevo en funcion obtener',this.nuevoParametro)
+  if (this.nuevoParametro.startsWith('r')) {
+    console.log('es r');
 
-      if (tipo && id) {
-        console.log(json)
-        const info = json[tipo].find(item => item.codigo === id);
-        console.log(info)
-        if (info) {
-          this.resultado = {
-            codigo: info.codigo,
-            nombre: info.nombre,
-            codigo_comp: info.codigo_comp,
-            competencia: info.competencia,
-            RA: info.RA,
-          };
-        } else {
-          this.resultado = null;
-        }
+    this.funcionResultados();
+  } else {
+    console.log('es cursos');
+
+    if (this.nuevoParametro == '203437') {
+      this.card = 'c1';
+    } else if (this.nuevoParametro == '203458') {
+      this.card = 'c2';
+    } 
+    let tipo = 'cursos';
+    let id = this.nuevoParametro;
+    console.log('nuevo en funcion obtener', this.nuevoParametro);
+    this.resultadoAprendizaje = json['resultados']
+    console.log('resultadoAprendizajes', this.resultadoAprendizajes);
+
+    if (tipo && id) {
+      console.log(json);
+      const info = json[tipo].find(item => item.codigo === id);
+      console.log(info);
+      if (info) {
+        this.resultado = {
+          codigo: info.codigo,
+          nombre: info.nombre,
+          codigo_comp: info.codigo_comp,
+          competencia: info.competencia,
+          RA: info.RA,
+        };
       } else {
         this.resultado = null;
       }
-    },
+    } else {
+      this.resultado = null;
+    }
+  }
+},
+
+funcionResultados(change) {
+  console.log('nuevo en funcion resultados', change)
+  console.log('resultadoAprendizaje', this.resultadoAprendizaje)
+
+let id = change;
+
+
+if (id && this.resultadoAprendizaje) {
+  let name = id.toUpperCase();
+  const info = this.resultadoAprendizaje.find(item => item.nombre === name);
+  console.log(info)
+  if (info) {
+    this.resultadoAprendizajeFiltro = {
+      nombre: info.nombre,
+      descripcion: info.descripcion
+    };
+  } else {
+    this.resultado = null;
+  }
+} else {
+  this.resultado = null;
+}
+},
+
+
 
     obtenerClaveRa(ra) {
       return ra.split(":")[0];
@@ -250,6 +283,33 @@ export default {
 
         this.activatep()
 
+      } else if (change == 'RA-203458-U1') {
+        this.ra = this.resultado.RA['RA-203458-U1']
+        console.log('ra2',this.ra)
+
+
+        this.activatep()
+
+      }else if (change == 'RA-203458-U2') {
+        this.ra = this.resultado.RA['RA-203458-U2']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+
+      }else if (change == 'RA-203458-U3') {
+        this.ra = this.resultado.RA['RA-203458-U3']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+
+      }else if (change == 'RA-203458') {
+        this.ra = this.resultado.RA['RA-203458']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+
+      }  else {
+        this.funcionResultados(change);
       }
 
     },

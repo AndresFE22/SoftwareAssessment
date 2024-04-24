@@ -6,7 +6,7 @@
 
   
         <v-col>
-          <v-sheet class="pa-2 ma-1" @click="change('r1')" style="background-color: #FFF2CC; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
+          <v-sheet class="pa-2 ma-1" @click="change('RA-203458')" style="background-color: #FFF2CC; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
             <strong>RA - 203458</strong>
           </v-sheet>
         </v-col>
@@ -20,17 +20,17 @@
 
   
         <v-col>
-          <v-sheet @click="change('r3')" class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
+          <v-sheet @click="change('RA-203458-U1')" class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
             <strong>RA  203458  U1</strong>
           </v-sheet>
         </v-col>
         <v-col>
-          <v-sheet @click="change('r3')" class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
+          <v-sheet @click="change('RA-203458-U2')" class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
             <strong>RA  203458  U2</strong>
           </v-sheet>
         </v-col>
         <v-col>
-          <v-sheet @click="change('r3')" class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
+          <v-sheet @click="change('RA-203458-U3')" class="pa-2 ma-1" style="background-color: #E2F0D9; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer;">
             <strong>RA  203458  U3</strong>
           </v-sheet>
         </v-col>
