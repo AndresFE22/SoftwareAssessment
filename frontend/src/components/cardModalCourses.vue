@@ -90,12 +90,12 @@
       <p class="titulo">CURSO</p>
       <p class="codigo">{{ resultado.codigo }}</p>
       <p class="nombre">{{ resultado.nombre }}</p>
-      <!-- <p class="nombre">{{ resultadoAprendizajeFiltro.nombre }}</p>
-      <p class="descripcion">{{ resultadoAprendizajeFiltro.descripcion }}</p> -->
       <p class="codigo-comp" v-if="mostrarCodigoComp" >{{ resultado.codigo_comp }}</p>
       <p class="descripcion" v-if="mostrarCompetencia">{{ resultado.competencia }}</p>
       <p class="codigo-comp" v-if="mostrarClaveRa">{{ obtenerClaveRa(ra) }}</p>
       <p class="descripcion" v-if="mostrarContenidoRa">{{ obtenerContenidoRa(ra) }}</p>
+      <p class="nombre" v-if="nombrera">{{ resultadoAprendizajeFiltro.nombre }}</p>
+      <p class="descripcion" v-if="descripcionra">{{ resultadoAprendizajeFiltro.descripcion }}</p>
     </v-col>
           </v-row>
         </v-container>
@@ -125,8 +125,8 @@
 
 import c1 from './tokens/courses/c1.vue';
 import c2 from './tokens/courses/c2.vue';
-import c3 from './tokens/competencies/c3.vue';
-import c4 from './tokens/competencies/c4.vue';
+import c3 from './tokens/courses/c3.vue';
+import c4 from './tokens/courses/c4.vue';
 
 import r1 from './tokens/results/r1.vue';
 import r2 from './tokens/results/r2.vue';
@@ -163,6 +163,8 @@ export default {
       mostrarCompetencia: true,
       mostrarClaveRa: false,
       mostrarContenidoRa: false,
+      nombrera: false,
+      descripcionra: false,
       ra: null,
       resultadoAprendizaje: null,
       resultadoAprendizajeFiltro: null
@@ -202,6 +204,10 @@ export default {
       this.card = 'c1';
     } else if (this.nuevoParametro == '203458') {
       this.card = 'c2';
+    } else if (this.nuevoParametro == '203414') {
+      this.card = 'c3';
+    } else if (this.nuevoParametro == '203427') {
+      this.card = 'c4';
     } 
     let tipo = 'cursos';
     let id = this.nuevoParametro;
@@ -245,7 +251,9 @@ if (id && this.resultadoAprendizaje) {
     this.resultadoAprendizajeFiltro = {
       nombre: info.nombre,
       descripcion: info.descripcion
-    };
+    }; 
+    this.activatera2()
+    console.log("this.resultadoAprendizajeFiltro",this.resultadoAprendizajeFiltro)
   } else {
     this.resultado = null;
   }
@@ -263,6 +271,7 @@ if (id && this.resultadoAprendizaje) {
       return ra.split(":")[1];
     },
     change(change) {
+      console.log('change', change)
       if (change == 'RA-203437-U1') {
         this.ra = this.resultado.RA['RA-203437-U1']
         console.log('ra',this.ra)
@@ -308,17 +317,76 @@ if (id && this.resultadoAprendizaje) {
 
         this.activatep()
 
-      }  else {
+      }  
+      else if (change == 'RA-203414-U1') {
+        this.ra = this.resultado.RA['RA-203414-U1']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+
+      }  
+      else if (change == 'RA-203414-U2') {
+        this.ra = this.resultado.RA['RA-203414-U2']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+
+      }  
+      else if (change == 'RA-203414-U3') {
+        this.ra = this.resultado.RA['RA-203414-U3']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+      }  
+      else if (change == 'RA-203414') {
+        this.ra = this.resultado.RA['RA-203414']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+
+      }       else if (change == 'RA-203427-U1') {
+        this.ra = this.resultado.RA['RA-203427-U1']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+      }       else if (change == 'RA-203427-U2') {
+        this.ra = this.resultado.RA['RA-203427-U2']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+      }       else if (change == 'RA-203427-U3') {
+        this.ra = this.resultado.RA['RA-203427-U3']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+      }       else if (change == 'RA-203427') {
+        this.ra = this.resultado.RA['RA-203427']
+        console.log('ra2',this.ra)
+
+        this.activatep()
+      } 
+      
+      
+      else {
         this.funcionResultados(change);
       }
 
     },
 
     activatep() {
-      this.mostrarCodigoComp = false
-        this.mostrarCompetencia = false
+      // this.mostrarCodigoComp = false
+      //   this.mostrarCompetencia = false
+        this.nombrera = false
+        this.descripcionra = false
         this.mostrarClaveRa = true
         this.mostrarContenidoRa = true
+    },
+
+    activatera2(){
+      this.mostrarClaveRa = false
+      this.mostrarContenidoRa = false
+      this.nombrera = true 
+      this.descripcionra = true
     },
 
     getBackgroundColor(parametro) {

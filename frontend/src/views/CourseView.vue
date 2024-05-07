@@ -3,83 +3,83 @@
 
 
 <div class="movil"  v-if="$vuetify.breakpoint.xsOnly">
-<div class="text">  <h1>RUTA GENERAL DE APRENDIZAJE</h1>
+<div class="text">  <h1>CURSOS INTEGRADORES</h1>
 </div>
   <div class="diagrama">
   <svg width="800" style="background-color: white" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
       <!-- <image href="../assets/lineasmovil.png" width="400" height="500" /> -->
       <g>
+        <g>
         <rect 
-          x="48" 
-          y="40" 
-          width="30" 
-          height="30"
+          x="40" 
+          y="60" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
           @click="openModal('203437')"
         />
+        <text style="font-size: 10pt;" x="170" y="85" class="titulo">DIDÁCTICA DE LA INFORMÁTICA</text>
+        <line x1="130" y1="80" x2="160" y2="80" stroke="gray" />
+
+  
+      </g>
+      <g>
         <rect 
-          x="93" 
-          y="40" 
-          width="30" 
-          height="30"
+          x="40" 
+          y="160" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
           @click="openModal('203458')"
         />
-
-        <!-- <rect 
-          x="143" 
-          y="40" 
-          width="30" 
-          height="30"
-          rx="10"
-          ry="10" 
-          class="p-rectangulo" 
-          stroke="gray"
-          @click="openModal('p3')"
-        />
-
+        <text style="font-size: 10pt;" x="170" y="185" class="titulo">PRÁCTICA DOCENTE II</text>
+        <line x1="130" y1="180" x2="160" y2="180" stroke="gray" />
+        
+      </g>
+      <g>
         <rect 
-          x="218" 
-          y="40" 
-          width="30" 
-          height="30"
+          x="40" 
+          y="260" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
-          @click="openModal('p4')"
+          @click="openModal('203414')"
         />
-
+        <text style="font-size: 10pt;" x="170" y="285" class="titulo"> INFORMÁTICA Y EDUCACIÓN</text>
+        <line x1="130" y1="280" x2="160" y2="280" stroke="gray" />
+       
+      </g>
+      <g>
         <rect 
-          x="320" 
-          y="40" 
-          width="30" 
-          height="30"
+          x="40" 
+          y="360" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
-          @click="openModal('p5')"
+          @click="openModal('203427')"
         />
+        <text style="font-size: 10pt;" x="170" y="385" class="titulo">INTELIGENCIA COMPUTACIONAL</text>
+        <line x1="130" y1="380" x2="160" y2="380" stroke="gray" />
+      
+      </g>
 
-
-        /> -->
-
-        <text x="64" y="60" class="texto-rectangulo" @click="openModal('203437')"
-></text>
-        <text x="109" y="60" class="texto-rectangulo" @click="openModal('203458')"></text>
-        <!-- <text x="158" y="60" class="texto-rectangulo" @click="openModal('p3')">P3</text>
-        <text x="234" y="60" class="texto-rectangulo" @click="openModal('p4')">P4</text>
-        <text x="335" y="60" class="texto-rectangulo" @click="openModal('p5')">P5</text> -->
-
-
-
+        
+        <text x="80" y="85" class="texto-rectangulo" @click="openModal('203437')">C-203437</text>
+        <text x="80" y="185" class="texto-rectangulo" @click="openModal('203458')">C-203458</text>
+        <text x="80" y="285" class="texto-rectangulo" @click="openModal('203414')">C-203414</text>
+        <text x="80" y="385" class="texto-rectangulo" @click="openModal('203427')">C-203427</text>
 
 
 
@@ -100,75 +100,80 @@
   <svg width="800" style="background-color: white" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
       <!-- <image href="../assets/lineasmovil.png" width="700" height="500" /> -->
       <g>
+        <g>
         <rect 
-          x="162" 
-          y="0" 
-          width="30" 
-          height="30"
+          x="100" 
+          y="60" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
           @click="openModal('203437')"
         />
+        <text style="font-size: 12pt;" x="270" y="85" class="titulo">DIDÁCTICA DE LA INFORMÁTICA</text>
+        <line x1="190" y1="80" x2="260" y2="80" stroke="gray" />
+
+  
+      </g>
+      <g>
         <rect 
-          x="220" 
-          y="0" 
-          width="30" 
-          height="30"
+          x="100" 
+          y="160" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
           @click="openModal('203458')"
         />
-
-        <!-- <rect 
-          x="283" 
-          y="0" 
-          width="30" 
-          height="30"
-          rx="10"
-          ry="10" 
-          class="p-rectangulo" 
-          stroke="gray"
-          @click="openModal('p3')"
-        />
-
+        <text style="font-size: 12pt;" x="270" y="185" class="titulo">PRÁCTICA DOCENTE II</text>
+        <line x1="190" y1="180" x2="260" y2="180" stroke="gray" />
+        
+      </g>
+      <g>
         <rect 
-          x="378" 
-          y="0" 
-          width="30" 
-          height="30"
+          x="100" 
+          y="260" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
-          @click="openModal('p4')"
+          @click="openModal('203414')"
         />
-
+        <text style="font-size: 12pt;" x="270" y="285" class="titulo"> INFORMÁTICA Y EDUCACIÓN</text>
+        <line x1="190" y1="280" x2="260" y2="280" stroke="gray" />
+       
+      </g>
+      <g>
         <rect 
-          x="504" 
-          y="0" 
-          width="30" 
-          height="30"
+          x="100" 
+          y="360" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
-          @click="openModal('p5')"
-        /> -->
+          @click="openModal('203427')"
+        />
+        <text style="font-size: 12pt  ;" x="270" y="385" class="titulo">INTELIGENCIA COMPUTACIONAL</text>
+        <line x1="190" y1="380" x2="260" y2="380" stroke="gray" />
+      
+      </g>
+
+        
+        <text x="140" y="85" class="texto-rectangulo" @click="openModal('203437')">C-203437</text>
+        <text x="140" y="185" class="texto-rectangulo" @click="openModal('203458')">C-203458</text>
+        <text x="140" y="285" class="texto-rectangulo" @click="openModal('203414')">C-203414</text>
+        <text x="140" y="385" class="texto-rectangulo" @click="openModal('203427')">C-203427</text>
 
 
 
-
-
-        <text x="177" y="20" class="texto-rectangulo" @click="openModal('203437')"
-></text>
-        <text x="235" y="20" class="texto-rectangulo" @click="openModal('203458')"></text>
-        <!-- <text x="300" y="20" class="texto-rectangulo" @click="openModal('p3')">P3</text>
-        <text x="395" y="20" class="texto-rectangulo" @click="openModal('p4')">P4</text>
-        <text x="520" y="20" class="texto-rectangulo" @click="openModal('p5')">P5</text> -->
 
       </g>
     </svg>
@@ -187,72 +192,79 @@
   <svg width="800" style="background-color: white" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
       <!-- <image href="../assets/lineasmovil.png" width="700" height="500" /> -->
       <g>
+        <g>
         <rect 
-          x="162" 
-          y="0" 
-          width="30" 
-          height="30"
+          x="100" 
+          y="60" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
           @click="openModal('203437')"
         />
+        <text style="font-size: 12pt;" x="270" y="85" class="titulo">DIDÁCTICA DE LA INFORMÁTICA</text>
+        <line x1="190" y1="80" x2="260" y2="80" stroke="gray" />
+
+  
+      </g>
+      <g>
         <rect 
-          x="220" 
-          y="0" 
-          width="30" 
-          height="30"
+          x="100" 
+          y="160" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
           @click="openModal('203458')"
         />
-
-        <!-- <rect 
-          x="283" 
-          y="0" 
-          width="30" 
-          height="30"
-          rx="10"
-          ry="10" 
-          class="p-rectangulo" 
-          stroke="gray"
-          @click="openModal('p3')"
-        />
-
+        <text style="font-size: 12pt;" x="270" y="185" class="titulo">PRÁCTICA DOCENTE II</text>
+        <line x1="190" y1="180" x2="260" y2="180" stroke="gray" />
+        
+      </g>
+      <g>
         <rect 
-          x="378" 
-          y="0" 
-          width="30" 
-          height="30"
+          x="100" 
+          y="260" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
-          @click="openModal('p4')"
+          @click="openModal('203414')"
         />
-
+        <text style="font-size: 12pt;" x="270" y="285" class="titulo"> INFORMÁTICA Y EDUCACIÓN</text>
+        <line x1="190" y1="280" x2="260" y2="280" stroke="gray" />
+       
+      </g>
+      <g>
         <rect 
-          x="504" 
-          y="0" 
-          width="30" 
-          height="30"
+          x="100" 
+          y="360" 
+          width="80" 
+          height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
-          @click="openModal('p5')"
-        /> -->
+          @click="openModal('203427')"
+        />
+        <text style="font-size: 12pt  ;" x="270" y="385" class="titulo">INTELIGENCIA COMPUTACIONAL</text>
+        <line x1="190" y1="380" x2="260" y2="380" stroke="gray" />
+      
+      </g>
+
+        
+        <text x="140" y="85" class="texto-rectangulo" @click="openModal('203437')">C-203437</text>
+        <text x="140" y="185" class="texto-rectangulo" @click="openModal('203458')">C-203458</text>
+        <text x="140" y="285" class="texto-rectangulo" @click="openModal('203414')">C-203414</text>
+        <text x="140" y="385" class="texto-rectangulo" @click="openModal('203427')">C-203427</text>
 
 
-        <text x="177" y="20" class="texto-rectangulo" @click="openModal('203437')"
-></text>
-        <text x="235" y="20" class="texto-rectangulo" @click="openModal('203458')"></text>
-        <!-- <text x="300" y="20" class="texto-rectangulo" @click="openModal('p3')">P3</text>
-        <text x="395" y="20" class="texto-rectangulo" @click="openModal('p4')">P4</text>
-        <text x="520" y="20" class="texto-rectangulo" @click="openModal('p5')">P5</text> -->
 
 
       </g>
@@ -271,8 +283,9 @@
   <svg width="800" class="svgint" height="500" viewBox="0 0 ancho alto" xmlns="http://www.w3.org/2000/svg">
       <!-- <image href="../assets/lienas.png" width="800" height="500"/> -->
       <g>
+        <g>
         <rect 
-          x="150" 
+          x="70" 
           y="60" 
           width="140" 
           height="40"
@@ -282,9 +295,15 @@
           stroke="gray"
           @click="openModal('203437')"
         />
+        <text x="370" y="85" class="titulo">DIDÁCTICA DE LA INFORMÁTICA</text>
+        <line x1="220" y1="80" x2="360" y2="80" stroke="gray" />
+
+  
+      </g>
+      <g>
         <rect 
-          x="150" 
-          y="187" 
+          x="70" 
+          y="160" 
           width="140" 
           height="40"
           rx="10"
@@ -293,49 +312,49 @@
           stroke="gray"
           @click="openModal('203458')"
         />
-<!-- 
+        <text x="370" y="185" class="titulo">PRÁCTICA DOCENTE II</text>
+        <line x1="220" y1="180" x2="360" y2="180" stroke="gray" />
+        
+      </g>
+      <g>
         <rect 
-          x="150" 
-          y="285" 
-          width="40" 
+          x="70" 
+          y="260" 
+          width="140" 
           height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
-          @click="openModal('p3')"
+          @click="openModal('203414')"
         />
-
+        <text x="370" y="285" class="titulo"> INFORMÁTICA Y EDUCACIÓN</text>
+        <line x1="220" y1="280" x2="360" y2="280" stroke="gray" />
+       
+      </g>
+      <g>
         <rect 
-          x="150" 
-          y="345" 
-          width="40" 
+          x="70" 
+          y="360" 
+          width="140" 
           height="40"
           rx="10"
           ry="10" 
           class="p-rectangulo" 
           stroke="gray"
-          @click="openModal('p4')"
+          @click="openModal('203427')"
         />
+        <text x="370" y="385" class="titulo">INTELIGENCIA COMPUTACIONAL</text>
+        <line x1="220" y1="380" x2="360" y2="380" stroke="gray" />
+      
+      </g>
 
-        <rect 
-          x="150" 
-          y="400" 
-          width="40" 
-          height="40"
-          rx="10"
-          ry="10" 
-          class="p-rectangulo" 
-          stroke="gray"
-          @click="openModal('p5')"
-        /> -->
+        
+        <text x="140" y="85" class="texto-rectangulo" @click="openModal('203437')">C-203437</text>
+        <text x="140" y="185" class="texto-rectangulo" @click="openModal('203458')">C-203458</text>
+        <text x="140" y="285" class="texto-rectangulo" @click="openModal('203414')">C-203414</text>
+        <text x="140" y="385" class="texto-rectangulo" @click="openModal('203427')">C-203427</text>
 
-
-        <text x="170" y="85" class="texto-rectangulo" @click="openModal('203437')"></text>
-        <text x="170" y="213" class="texto-rectangulo" @click="openModal('203458')"></text>
-        <!-- <text x="170" y="310" class="texto-rectangulo" @click="openModal('p3')">P3</text>
-        <text x="170" y="370" class="texto-rectangulo" @click="openModal('p4')">P4</text>
-        <text x="170" y="425" class="texto-rectangulo" @click="openModal('p5')">P5</text> -->
 
 
 
@@ -414,6 +433,11 @@
 
 }
 
+.titulo {
+  font-weight: bold;
+  color: #3498db;
+}
+
 .svg {
   background-color: #ffffff;
   width: 60%;
@@ -442,7 +466,7 @@
 }
 
 .p-rectangulo {
-  fill: #FFF2CC; /* Color de relleno del rectángulo */
+  fill: rgb(222, 235, 247); /* Color de relleno del rectángulo */
   stroke-width: 2;
   transition: fill 0.3s, stroke 0.3s; /* Transición suave al cambiar de color */
   cursor: pointer;
@@ -528,6 +552,7 @@ E2F0D9 verde*/
   cursor: pointer;
   font-weight: bold;
 }
+
 
   </style>
   
