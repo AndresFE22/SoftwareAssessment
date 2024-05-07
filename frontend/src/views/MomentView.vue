@@ -38,9 +38,9 @@
   <div class="text">  <h1>RUTA GENERAL DE APRENDIZAJE</h1>
 </div>
   <div class="diagrama">
-<grafico />
 <div class="svg">
- 
+  <grafico :width="600" :height="600" @moment="modalMoment" :data="chartData"></grafico>
+
 </div>
   </div>
 </div>
@@ -55,10 +55,13 @@
   
   <script>
   // Importa el componente desde la carpeta "components"
-  import modal from '../components/cardModalCourses.vue';
-  import grafico from '../components/graficoChart.vue';
+  import modal from '../components/cardModalMoment.vue';
+  import grafico from '../components/ChartVue.vue';
+  
 
   
+  
+
   export default {
     components: {
       modal,
@@ -71,11 +74,11 @@
     }
   },
   methods: {
-    openModal(parametro) {
-      console.log(parametro)
-      this.modalParametro = parametro
+    modalMoment(moment) {
+      console.log('entre')
+      console.log('entre', moment)
+      this.modalParametro = moment
       this.dialog = true
-      this.$emit('data')
 
 
     },
