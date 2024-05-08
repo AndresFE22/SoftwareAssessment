@@ -388,15 +388,15 @@
             "curso": "203414 - Informatica y educación",
             "indicadores": {
                 "1": {
-                      "indicador_1": "INDICADOR 1: PLANIFICACIÓN DE LA ESTRUCTURA, REPRESENTACIÓN GRÁFICA Y JUSTIFICACIÓN",
-                      "evidencia": "EVIDENCIA: Boceto en papel o digital que dé evidencia de la realización de algún proceso de planeación del diseño de la mediación."   
+                      "indicador": "Planificación de la estructura, representación gráfica y justificación",
+                      "evidencia": "Boceto en papel o digital que dé evidencia de la realización de algún proceso de planeación del diseño de la mediación."   
                 },
                 "2": {
-                    "indicador_2": "INDICADOR 2: CREACIÓN DE LA MEDIACION TECNOLOGICA",
-                    "evidencia": "Mediación tecnológica en formato y herramienta seleccionados por los estudiantes."   
+                    "indicador": "Creación de la mediación tecnológica",
+                    "evidencia": "EVIDENCIA: Mediación tecnológica en formato y herramienta seleccionados por los estudiantes."   
               },
                 "3": {
-                "indicador_1": "INDICADOR 3: SOCIALIZACIÓN DE LA FUNDAMENTACIÓN PEDAGÓGICA Y TÉCNICA",
+                "indicador": "Socialización de la fundamentación pedagógica y técnica",
                 "evidencia": "Video de 3 minutos que describe la fundamentación pedagógica y técnica."   
           }
             },
@@ -409,15 +409,15 @@
             "curso": "203258 - Didactica de la informática",
             "indicadores": {
                 "1": {
-                      "indicador_1": "INDICADOR 1: Planificación de la clase y contexto educativo",
-                      "evidencia": "EVIDENCIA: Plan de clase en formato PDF."   
+                      "indicador": "Planificación de la clase y contexto educativo",
+                      "evidencia": "Plan de clase en formato PDF."   
                 },
                 "2": {
-                    "indicador_2": "INDICADOR 2: Creación recursos para la clase",
+                    "indicador": "Creación recursos para la clase",
                     "evidencia": "Mediación tecnológica en formato y herramienta seleccionados por los estudiantes."   
               },
                 "3": {
-                "indicador_1": "INDICADOR 3: Sustentación de componentes pedagógicos y didácticos",
+                "indicador": "Sustentación de componentes pedagógicos y didácticos",
                 "evidencia": "Video de 3 minutos que justifica la selección de la estrategia didáctica."   
           }
             },
@@ -429,15 +429,15 @@
             "curso": "203458 - Practica docente II",
             "indicadores": {
                 "1": {
-                      "indicador_1": "INDICADOR 1: REFLEXIÓN CRÍTICA Y CREATIVA SOBRE LA PRÁCTICA DOCENTE",
+                      "indicador": "Reflexión crítica y creativa sobre la práctica docente",
                       "evidencia": "Video de 3 minutos de reflexión sobre el caso. En el video se debe dar respuesta a las tres preguntas de reflexión."   
                     },
                 "2": {
-                    "indicador_2": "INDICADOR 2: APORTE DE LA EXPERIENCIA DE LA PRÁCTICA DOCENTE AL CASO",
+                    "indicador": "Aporte de la experiencia de la práctica docente al caso",
                     "evidencia": "Video de 3 minutos de reflexión sobre el caso. En el video se debe dar respuesta a las tres preguntas de reflexión."   
                 },
                 "3": {
-                "indicador_1": "INDICADOR 3: VIDEO REFLEXIÓN SOBRE EL CASO",
+                "indicador": "Video reflexión sobre el caso",
                 "evidencia": "Video de 3 minutos de reflexión sobre el caso. En el video se debe dar respuesta a las tres preguntas de reflexión."   
           }
             },
