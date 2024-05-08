@@ -17,7 +17,6 @@
           </v-card-title>
           <v-card-text>
             <v-container>
-              <v-row>
                 <v-col cols="12">
                   <v-col>
             <v-sheet class="pa-2 ma-1" :style="getBackgroundColor(nuevoParametro)" style="background-color: #FFF2CC; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer; text-transform: uppercase;
@@ -28,19 +27,7 @@
           </v-col>
     
                 </v-col>
-              </v-row>
-              <v-row v-if="resultado" style="background-color: #ececec; border-radius: 20px;">
-                <v-col cols="12">
-                  <p class="titulo">CURSO</p>
-          <p class="codigo">{{ resultado.codigo }}</p>
-          <p class="nombre">{{ resultado.nombre }}</p>
-          <p class="codigo-comp" v-if="mostrarCodigoComp" >{{ resultado.codigo_comp }}</p>
-          <p class="descripcion" v-if="mostrarCompetencia">{{ resultado.competencia }}</p>
-          <p class="codigo-comp" v-if="mostrarClaveRa">{{ obtenerClaveRa(ra) }}</p>
-          <p class="descripcion" v-if="mostrarContenidoRa">{{ obtenerContenidoRa(ra) }}</p>
-          
-        </v-col>
-              </v-row>
+
             </v-container>
           </v-card-text>
         </v-card>
@@ -48,7 +35,7 @@
         <transition name="slide">
     
         <div class="right-panel">
-          <component :is="card" @change="change" />
+          <!-- <component :is="card" @change="change" /> -->
         </div>
       </transition>
     
@@ -85,17 +72,19 @@
     
                 </v-col>
               </v-row>
-              <v-row v-if="resultado" style="background-color: #ececec; border-radius: 20px;">
+              <v-row v-if="momento" style="background-color: #ececec; border-radius: 20px;">
                 <v-col cols="12">
           <p class="titulo"></p>
-          <p class="codigo">{{ resultado.codigo }}</p>
-          <p class="nombre">{{ resultado.nombre }}</p>
-          <p class="codigo-comp" v-if="mostrarCodigoComp" >{{ resultado.codigo_comp }}</p>
-          <p class="descripcion" v-if="mostrarCompetencia">{{ resultado.competencia }}</p>
-          <p class="codigo-comp" v-if="mostrarClaveRa">{{ obtenerClaveRa(ra) }}</p>
-          <p class="descripcion" v-if="mostrarContenidoRa">{{ obtenerContenidoRa(ra) }}</p>
-          <p class="nombre" v-if="nombrera">{{ resultadoAprendizajeFiltro.nombre }}</p>
-          <p class="descripcion" v-if="descripcionra">{{ resultadoAprendizajeFiltro.descripcion }}</p>
+          <p class="codigo">{{ momento.curso }}</p>
+          <p class="codigo-comp">{{ obtenerClaveMo(momento.PI) }}</p>
+          <p class="descripcion"  >{{ obtenerContenidoMo(momento.PI) }}</p>
+          <p class="nombre">{{ momento.AIM }}</p>
+          <button @click="downloadPDF">Descargar PDF</button>
+
+
+
+
+    
         </v-col>
               </v-row>
             </v-container>
@@ -105,7 +94,7 @@
         <transition name="slide">
     
         <div class="right-panelw">
-          <component :is="card" @change="change" />
+          <!-- <component :is="card" @change="change" /> -->
         </div>
       </transition>
     
@@ -123,9 +112,9 @@
     
     <script>
     
-    import m1 from './tokens/moment/m1.vue';
-    import m2 from './tokens/moment/m2.vue';
-    import m3 from './tokens/moment/m3.vue';
+    // import m1 from './tokens/moment/m1.vue';
+    // import m2 from './tokens/moment/m2.vue';
+    // import m3 from './tokens/moment/m3.vue';
 
     import json from '../json/informacion.json'
     
@@ -134,7 +123,7 @@
     export default {
       components: {
         
-        m1,m2,m3
+        // m1,m2,m3
         },
       props: {
         parametro: {
@@ -146,6 +135,9 @@
     
       data() {
         return {
+          momento: null,
+          dialog: true,
+          link: null
 
     
     
@@ -153,15 +145,48 @@
       },
     
       mounted() {
+        this.obtenerInformacion();
+        this.link = this.$refs.downloadLink;
 
     
     
       },
+
+      methods: {
+        obtenerInformacion() {
+          this.momento = json.momentos.find(momento => momento.id === this.parametro)
+          console.log('momento', this.momento)
+        },
+        obtenerClaveMo(mo) {
+      return mo.split(":")[0];
+    },
+    obtenerContenidoMo(mo) {
+      return mo.split(":")[1];
+    },
+
+    closec() {
+      this.$emit('closec')
+    },
+    
+    downloadPDF() {
+      console.log("descargar pdf")
+      const link = document.createElement('a');
+      const fileID = '1Qr59cm0rqC-48No3kkN73hWXRqMEQBpC'
+      link.href = `https://drive.google.com/uc?export=download&id=${fileID}`;
+      link.download = 'AIM1.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+  }
+      },
+
+
     
 
       watch: {
         parametro() {
-          this.resultado = null; // Reiniciar el resultado cuando el parámetro cambia
+          this.momento = null; // Reiniciar el resultado cuando el parámetro cambia
           this.obtenerInformacion();
         }
       }
@@ -187,6 +212,20 @@
       color: rgb(0, 121, 235)
     
     }
+
+    .embed-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* Proporción 16:9 */
+}
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
     
     .codigo {
       font-size: 20px;

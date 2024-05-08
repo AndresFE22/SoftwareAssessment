@@ -380,6 +380,70 @@
     }
                     
         
+    ],
+
+    "momentos": [
+        {
+            "id": "m1",
+            "curso": "203414 - Informatica y educación",
+            "indicadores": {
+                "1": {
+                      "indicador_1": "INDICADOR 1: PLANIFICACIÓN DE LA ESTRUCTURA, REPRESENTACIÓN GRÁFICA Y JUSTIFICACIÓN",
+                      "evidencia": "EVIDENCIA: Boceto en papel o digital que dé evidencia de la realización de algún proceso de planeación del diseño de la mediación."   
+                },
+                "2": {
+                    "indicador_2": "INDICADOR 2: CREACIÓN DE LA MEDIACION TECNOLOGICA",
+                    "evidencia": "Mediación tecnológica en formato y herramienta seleccionados por los estudiantes."   
+              },
+                "3": {
+                "indicador_1": "INDICADOR 3: SOCIALIZACIÓN DE LA FUNDAMENTACIÓN PEDAGÓGICA Y TÉCNICA",
+                "evidencia": "Video de 3 minutos que describe la fundamentación pedagógica y técnica."   
+          }
+            },
+            "AIM": "AIM1",
+            "PI": "Proyeco integrador 1: Diseñar una mediación tecnológica que promueva la ciudadanía informada en un tema de relevancia relacionado con los lineamientos del área de Tecnología e Informática"
+
+        },
+               {
+            "id": "m2",
+            "curso": "203258 - Didactica de la informática",
+            "indicadores": {
+                "1": {
+                      "indicador_1": "INDICADOR 1: Planificación de la clase y contexto educativo",
+                      "evidencia": "EVIDENCIA: Plan de clase en formato PDF."   
+                },
+                "2": {
+                    "indicador_2": "INDICADOR 2: Creación recursos para la clase",
+                    "evidencia": "Mediación tecnológica en formato y herramienta seleccionados por los estudiantes."   
+              },
+                "3": {
+                "indicador_1": "INDICADOR 3: Sustentación de componentes pedagógicos y didácticos",
+                "evidencia": "Video de 3 minutos que justifica la selección de la estrategia didáctica."   
+          }
+            },
+            "AIM": "AIM2",
+            "PI": "Proyeco integrador 2: Elabora un proyecto educativo innovador enfocado en la creación de experiencias de aprendizaje enriquecedoras y contextualizadas, incorporando elementos de tecnología educativa, tendencias pedagógicas contemporáneas y gestión educativa eficiente"
+        },
+        {
+            "id": "m3",
+            "curso": "203458 - Practica docente II",
+            "indicadores": {
+                "1": {
+                      "indicador_1": "INDICADOR 1: REFLEXIÓN CRÍTICA Y CREATIVA SOBRE LA PRÁCTICA DOCENTE",
+                      "evidencia": "Video de 3 minutos de reflexión sobre el caso. En el video se debe dar respuesta a las tres preguntas de reflexión."   
+                    },
+                "2": {
+                    "indicador_2": "INDICADOR 2: APORTE DE LA EXPERIENCIA DE LA PRÁCTICA DOCENTE AL CASO",
+                    "evidencia": "Video de 3 minutos de reflexión sobre el caso. En el video se debe dar respuesta a las tres preguntas de reflexión."   
+                },
+                "3": {
+                "indicador_1": "INDICADOR 3: VIDEO REFLEXIÓN SOBRE EL CASO",
+                "evidencia": "Video de 3 minutos de reflexión sobre el caso. En el video se debe dar respuesta a las tres preguntas de reflexión."   
+          }
+            },
+            "AIM": "AIM3",
+            "PI": "Proyeco integrador 3: Reflexionar críticamente sobre su práctica pedagógica investigativa y, de manera creativa e innovadora, incorpora la tecnología, los medios audiovisuales y la gestión educativa en sus proyectos de práctica pedagógica investigativa en entornos reales en las instituciones educativas"
+        }
     ]
 
     

@@ -39,7 +39,7 @@
 </div>
   <div class="diagrama">
 <div class="svg">
-  <grafico :width="600" :height="600" @moment="modalMoment" :data="chartData"></grafico>
+  <grafico :width="600" :height="600" @moment="modalMoment"></grafico>
 
 </div>
   </div>

@@ -4,9 +4,9 @@
       <!-- Círculo grande -->
       <circle cx="50" cy="50" :r="outerRadius" fill="rgb(237,125,49)" @click="modalMoment('m1')" />
       <!-- Círculo mediano -->
-      <circle cx="50" cy="60" :r="mediumRadius" fill="rgb(165,165,165)" />
+      <circle cx="50" cy="60" :r="mediumRadius" fill="rgb(165,165,165)" @click="modalMoment('m2')" />
       <!-- Círculo pequeño -->
-      <circle cx="50" cy="70" :r="innerRadius" fill="rgb(255,192,0)" />
+      <circle cx="50" cy="70" :r="innerRadius" fill="rgb(255,192,0)" @click="modalMoment('m3')" />
       <!-- Texto -->
       <text style="font-weight: bold;" fill="white" x="50" y="23" text-anchor="middle" dominant-baseline="middle" font-size="4">{{ chartTextOuter }}</text>
 
