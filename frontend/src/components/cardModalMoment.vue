@@ -24,8 +24,14 @@
                   <v-col>
                   
               <v-row v-if="momento" style="background-color: #ececec; border-radius: 20px;">
+                <v-btn v-if="parametro == 'm1'" @click="downloadExcel" icon class="absolute top-0 right-0 m-2" >
+                  <span class="mdi mdi-text-box-check icon-size"></span>
+              </v-btn>
                 <v-col cols="12">
                   <br>
+
+<h1 style="text-align: center; color: gray;">Momento {{ parametro[1] }}</h1>
+<br>
                   <p class="codigo">{{ momento.curso }}</p>
           <p class="codigo-comp">{{ obtenerClaveMo(momento.PI) }}</p>
           <br>
@@ -101,7 +107,7 @@
 
               </v-row>
               <v-row v-if="momento" style="background-color: #ececec; border-radius: 20px;">
-                <v-btn @click="downloadExcel" icon class="absolute top-0 right-0 m-2" >
+                <v-btn v-if="parametro == 'm1'" @click="downloadExcel" icon class="absolute top-0 right-0 m-2" >
                   <span class="mdi mdi-text-box-check icon-size"></span>
               </v-btn>
                 <v-col cols="12">
