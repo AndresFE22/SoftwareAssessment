@@ -98,15 +98,18 @@
           <v-card-text>
             <v-container>
               <v-row>
-                <v-col cols="12">
-                  <v-col>
-          </v-col>
-    
-                </v-col>
+
               </v-row>
               <v-row v-if="momento" style="background-color: #ececec; border-radius: 20px;">
+                <v-btn @click="downloadExcel" icon class="absolute top-0 right-0 m-2" >
+                  <span class="mdi mdi-text-box-check icon-size"></span>
+              </v-btn>
                 <v-col cols="12">
                   <br>
+
+                  <h1 style="text-align: center; color: gray;">Momento {{ parametro[1] }}</h1>
+                  <br>
+
                   <p class="codigo">{{ momento.curso }}</p>
           <p class="codigo-comp">{{ obtenerClaveMo(momento.PI) }}</p>
           <br>
@@ -258,6 +261,20 @@
       link.click();
       document.body.removeChild(link);
       
+  },
+  downloadExcel() {
+      let fileID = '1RlSPJ_gqjhFcs-Ivdw66CwVlpgkS-lph'
+    
+      console.log("descargar pdf")
+      console.log("id", fileID)
+
+      const link = document.createElement('a');
+      link.href = `https://drive.google.com/uc?export=download&id=${fileID}`;
+      link.download = 'Evaluacion Momento';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
   }
       },
 
@@ -283,6 +300,9 @@
   padding: 5px; /* Espaciado interno del botón */
 }
 
+.icon-size {
+  font-size: 34px; /* Tamaño del ícono más grande */
+}
 .download 
 {
   display: flex;
