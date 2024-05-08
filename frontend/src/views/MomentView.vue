@@ -6,7 +6,10 @@
 <div class="text">  <h1>CURSOS INTEGRADORES</h1>
 </div>
   <div class="diagrama">
- 
+    <div class="svg">
+  <grafico :width="600" :height="600" @moment="modalMoment"></grafico>
+
+</div>
 
   </div>
 </div>
@@ -17,7 +20,10 @@
 </div>
   <div class="diagrama">
 
+    <div class="svg">
+  <grafico :width="600" :height="600" @moment="modalMoment"></grafico>
 
+</div>
 
   </div>
 </div>
@@ -29,7 +35,10 @@
 </div>
   <div class="diagrama">
 
- 
+    <div class="svg">
+  <grafico :width="600" :height="600" @moment="modalMoment"></grafico>
+
+</div>
 
   </div>
 </div>

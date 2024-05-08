@@ -8,6 +8,9 @@
         <transition name="fade">
     
         <div class="container">
+              <v-btn @click="closec" icon class="absolute top-0 right-0 m-2">
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
         <div class="left-panel">
           <v-card>
           <v-card-title >
@@ -19,11 +22,28 @@
             <v-container>
                 <v-col cols="12">
                   <v-col>
-            <v-sheet class="pa-2 ma-1" :style="getBackgroundColor(nuevoParametro)" style="background-color: #FFF2CC; border: 1px solid gray; border-radius: 10px; text-align: center; cursor: pointer; text-transform: uppercase;
-    ">
-              <strong>{{ nuevoParametro }}
-    </strong>
-            </v-sheet>
+                  
+              <v-row v-if="momento" style="background-color: #ececec; border-radius: 20px;">
+                <v-col cols="12">
+                  <br>
+                  <p class="codigo">{{ momento.curso }}</p>
+          <p class="codigo-comp">{{ obtenerClaveMo(momento.PI) }}</p>
+          <br>
+          <p class="descripcion"  >{{ obtenerContenidoMo(momento.PI) }}</p>
+          <br>
+          <br>
+
+          <div class="download-movil">
+            <div class="pdf">
+              <p class="nombre">{{ momento.AIM }}</p>
+            </div>
+            <div class="aim">
+              <v-btn color="primary" @click="downloadPDF">Descargar PDF</v-btn>
+            </div>
+          </div>
+    
+        </v-col>
+              </v-row>
           </v-col>
     
                 </v-col>
@@ -32,17 +52,28 @@
           </v-card-text>
         </v-card>
         </div>
+        <br>
+        <br>
         <transition name="slide">
           
     
         <div class="right-panel">
-          <!-- <component :is="card" @change="change" /> -->
-        </div>
+          <div class="menu">
+      <v-btn @click="showInfo(1)" :color="key_indicador === 1 ? 'primary' : 'secondary'" class="button-indicador" >Indicador 1</v-btn>
+      <v-btn @click="showInfo(2)" :color="key_indicador === 2 ? 'primary' : 'secondary'" class="button-indicador">Indicador 2</v-btn>
+      <v-btn @click="showInfo(3)" :color="key_indicador === 3 ?  'primary' : 'secondary'" class="button-indicador">Indicador 3</v-btn>
+    </div>
+        <br>
+    <div class="text" v-if="selectedIndicator">
+      <h2>Indicador {{ key_indicador }}</h2>
+      <br>
+      <p>{{ selectedIndicator.indicador }}</p>
+      <br>
+      <h2>Evidencia</h2>
+      <br>
+      <p>{{ selectedIndicator.evidencia }}</p>
+    </div>        </div>
       </transition>
-    
-        <v-btn @click="closec" icon class="absolute top-0 right-0 m-2">
-                <v-icon>mdi-close</v-icon>
-              </v-btn>
     </div>
     </transition>
     
@@ -104,12 +135,12 @@
         </div>
 
         <div class="right-panelw">
-          <div class="menu">
-      <v-spacer></v-spacer>
-      <v-btn @click="showInfo(1)">Indicador 1</v-btn>
-      <v-btn @click="showInfo(2)">Indicador 2</v-btn>
-      <v-btn @click="showInfo(3)">Indicador 3</v-btn>
-    </div><br>
+            <div class="menu">
+      <v-btn @click="showInfo(1)" :color="key_indicador === 1 ? 'primary' : 'secondary'">Indicador 1</v-btn>
+      <v-btn @click="showInfo(2)" :color="key_indicador === 2 ? 'primary' : 'secondary'">Indicador 2</v-btn>
+      <v-btn @click="showInfo(3)" :color="key_indicador === 3 ?  'primary' : 'secondary'">Indicador 3</v-btn>
+    </div>
+        <br>
     <div class="text" v-if="selectedIndicator">
       <h2>Indicador {{ key_indicador }}</h2>
       <br>
@@ -173,6 +204,7 @@
       mounted() {
         this.obtenerInformacion();
         this.link = this.$refs.downloadLink;
+        this.showInfo(1)
 
     
     
@@ -245,9 +277,22 @@
     <style scoped>
 
 
+.button-indicador {
+  width: 100px; /* Ancho del botón */
+  font-size: 12px; /* Tamaño de fuente más pequeño */
+  padding: 5px; /* Espaciado interno del botón */
+}
+
 .download 
 {
   display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.download-movil {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: auto;
 }
@@ -302,6 +347,7 @@
       font-size: 18px;
       color: #2b2b2b;
       margin-top: 20px;
+      text-align: justify;
     }
     
     .containerw {
@@ -317,7 +363,7 @@
     
     .container {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       height: auto;
       overflow: auto
     }
@@ -336,6 +382,7 @@
       width: 40%;
       border-radius: 20px;
       height: 50vh;
+
     }
     
     
@@ -345,6 +392,8 @@
     
     .menu {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu button {
