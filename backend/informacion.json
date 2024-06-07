@@ -204,10 +204,6 @@
         
       ],
 
-
-
-
-
       "resultados": [
         {
             "id": 111,
@@ -444,146 +440,117 @@
             "AIM": "AIM3",
             "PI": "Proyeco integrador 3: Reflexionar críticamente sobre su práctica pedagógica investigativa y, de manera creativa e innovadora, incorpora la tecnología, los medios audiovisuales y la gestión educativa en sus proyectos de práctica pedagógica investigativa en entornos reales en las instituciones educativas"
         }
-    ], 
-
+    ],
 
     "nombres": [
         {
             "id": 1,
-            "name": "P1",
-            "id_execute": "p1"
+            "name": "P1"
         },
         {
             "id": 2,
             "name": "P2"
-            ,
-            "id_execute": "p2"
         },
         {
             "id": 3,
-            "name": "P3",
-            "id_execute": "p3"
+            "name": "P3"
         },
         {
             "id": 4,
-            "name": "P4",
-            "id_execute": "p4"
+            "name": "P4"
         },
         {
             "id": 5,
-            "name": "P5",
-            "id_execute": "p5"
+            "name": "P5"
         },
         {
             "id": 11,
-            "name": "C1",
-            "id_execute": "c1"
+            "name": "C1"
         },
         {
             "id": 22,
-            "name": "C2",
-            "id_execute": "c2"
+            "name": "C2"
         },
         {
             "id": 33,
-            "name": "C3",
-            "id_execute": "c3"
+            "name": "C3"
         },
         {
             "id": 44,
-            "name": "C4",
-            "id_execute": "c4"
+            "name": "C4"
         },
         {
             "id": 55,
-            "name": "C5",
-            "id_execute": "c5"
+            "name": "C5"
         },
         {
             "id": 66,
-            "name": "C6",
-            "id_execute": "c6"
+            "name": "C6"
         },
         {
             "id": 77,
-            "name": "C7",
-            "id_execute": "c7"
+            "name": "C7"
         },
         {
             "id": 111,
-            "name": "R1",
-            "id_execute": "r1"
+            "name": "R1"
         },
         {
             "id": 222,
-            "name": "R2",
-            "id_execute": "r2"
+            "name": "R2"
         },
         {
             "id": 333,
-            "name": "R3",
-            "id_execute": "r3"
+            "name": "R3"
         },
         {
             "id": 444,
-            "name": "R4",
-            "id_execute": "r4"
+            "name": "R4"
         },
         {
             "id": 555,
-            "name": "R5",
-            "id_execute": "r5"
+            "name": "R5"
         },
         {
             "id": 666,
-            "name": "R6",
-            "id_execute": "r6"
+            "name": "R6"
         },
         {
             "id": 777,
-            "name": "R7",
-            "id_execute": "r7"
+            "name": "R7"
         },
         {
             "id": 1111,
-            "name": "Didáctica de la informática",
-            "id_execute": "203437"
+            "name": "Didáctica de la informática"
         },
         {
             "id": 2222,
-            "name": "Práctica docente II",
-            "id_execute": "203458"
+            "name": "Práctica docente II"
         },
         {
             "id": 3333,
-            "name": "Informatica y educación",
-            "id_execute": "203414"
+            "name": "Informatica y educación"
         },
         {
             "id": 4444,
-            "name": "Inteligencia Computacional",
-            "id_execute": "203427"
+            "name": "Inteligencia Computacional"
         },
         {
             "id": "m1",
-            "name": "Momento 1 - 203414 - Informatica y educación",
-            "id_execute": "m1"
+            "name": "203414 - Informatica y educación"
         },
         {
             "id": "m2",
-            "name": "Momento 2 - 203258 - Didactica de la informática",
-            "id_execute": "m2"
+            "name": "203258 - Didactica de la informática"
         },
         {
             "id": "m3",
-            "name": "Momento 3 - 203458 - Practica docente II",
-            "id_execute": "m3"
-        },
-        {
-            "name": ""
+            "name": "203458 - Practica docente II"
         }
 
     ]
+        
+    
 
     
   }
