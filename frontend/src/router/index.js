@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import loginRegister from '../components/loginRegister.vue'
 import ContentView from '../views/ContentView.vue'
 import General from '../views/GenerarView.vue'
 import Course from '../views/CourseView.vue'
@@ -23,11 +24,21 @@ const routes = [
       hideAppBar: true
     }
   },
+  {
+    path: '/auth',
+    name: 'auth',
+    component: loginRegister,
+    meta: {
+      hideAppBar: true
+    }
+  },
 
   {
     path: '/content',
     name: 'content',
     component: ContentView,
+    meta: { requiresAuth: true }
+
   },
   {
     path: '/General',
@@ -64,5 +75,18 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!localStorage.getItem('session')) {
+      next({ name: 'auth' });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
 
 export default router

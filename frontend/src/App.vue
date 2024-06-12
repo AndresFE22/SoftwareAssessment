@@ -54,6 +54,8 @@
       <div v-if="showDropdown" class="dropdown">
       <div v-for="item in filteredResults" :key="item" @click="selectItem(item)" class="dropdown-item">{{ item.name }}</div>
     </div>
+    <v-btn @click="logout">Cerrar Sesión</v-btn>
+
 
     </v-app-bar>
 
@@ -140,7 +142,7 @@ export default {
       results: [],
       showDropdown: false,
       selectedItem: null,
-      dialog: true,
+      dialog: false,
       modalParametro: '',
 
         }
@@ -177,6 +179,10 @@ export default {
     this.$router.push('/content');
   }
 },
+logout() {
+    localStorage.removeItem('session');
+    this.$router.push('/login');
+  },
   onInput() {
  
     this.showDropdown = true;

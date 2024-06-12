@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     entrar() {
-      this.$router.push('/content')
+      this.$router.push('/auth')
     }
   }
 };
