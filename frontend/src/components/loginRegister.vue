@@ -8,6 +8,7 @@
                   <v-window-item :value="1">
                     <v-row>
 
+
                       <v-col cols="12" md="6">
                         <v-card-text class="mt-12">
                           <h4
@@ -39,9 +40,8 @@
                             
                             />
                               <v-row>
-                                <v-col cols="12" sm="5">
-                                  <span class="caption blue--text">Recuperar contraseña</span>
-                                </v-col>
+<br><br>
+
                               </v-row>
                             <v-btn color="blue" dark block tile @click="login" >Iniciar Sesión</v-btn>
                             <br>
@@ -159,7 +159,11 @@
                        
  <br>
  <br>
- 
+
+                            <v-alert v-if="alert.visible" :type="alert.type" dismissible @input="alert.visible = false">
+      {{ alert.message }}
+    </v-alert>
+                            <br><br>
                            <div class="d-flex  justify-space-between align-center mx-10 mb-11">
                           <v-btn depressed outlined color="grey">
                             <img src="../assets/Rotulo informatica.png" alt="Logo 1" style="width: 150px;" >
@@ -214,7 +218,7 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await axios.post('http://127.0.0.1:5000/login', {
+        const response = await axios.post('https://cuentaapi.pythonanywhere.com/login', {
           user: this.UsuarioLogin,
           password: this.ContraseñaLogin,
         });
@@ -241,14 +245,23 @@ export default {
     async register() {
       console.log('register')
       try {
-        const response = await axios.post('http://127.0.0.1:5000/register', {
+        const response = await axios.post('https://cuentaapi.pythonanywhere.com/register', {
           name: this.Nombres + ' ' + this.Apellidos,
           user: this.UsuarioRegister,
           password: this.ContraseñaRegister
         });
         console.log(response.data);
-        // Aquí puedes manejar la respuesta del servidor
-      } catch (error) {
+        if (response.data.error) {
+          this.showAlert('error', response.data.error);
+        } else {
+          console.log(response.data);
+          this.showAlert('message', response.data.message);
+          this.Nombres = '';
+          this.Apellidos = '';
+          this.UsuarioRegister = '';
+          this.ContraseñaRegister = '';
+        }    
+         } catch (error) {
         console.error('Error en el registro:', error);
         // Aquí puedes manejar el error del servidor
       }

@@ -54,7 +54,8 @@
       <div v-if="showDropdown" class="dropdown">
       <div v-for="item in filteredResults" :key="item" @click="selectItem(item)" class="dropdown-item">{{ item.name }}</div>
     </div>
-    <v-btn @click="logout">Cerrar Sesión</v-btn>
+    <v-spacer></v-spacer>
+    <span class="mdi mdi-logout"></span><input type="submit" value="Salir" @click="logout">
 
 
     </v-app-bar>
@@ -81,8 +82,18 @@
       </div>
 
 <v-spacer></v-spacer>
-
-
+<v-text-field
+        v-model="search"
+        :items="results"
+        label="Buscar"
+        prepend-icon="mdi-magnify"
+        variant="outlined"
+        style="width: 1px; margin-top: 2em;"
+        @input="onInput"
+      ></v-text-field>
+      <div v-if="showDropdown" class="dropdown">
+      <div v-for="item in filteredResults" :key="item" @click="selectItem(item)" class="dropdown-item">{{ item.name }}</div>
+    </div>
 <v-menu offset-y>
         <template v-slot:activator="{ on }">
           <v-btn text v-on="on">
@@ -93,6 +104,7 @@
           <v-list-item v-for="(item, index) in menuItems" :key="index" @click="navigateTo(item.route)">
             <v-list-item-title>
               <v-btn text :class="{ 'color-active': isActiveRoute(item.route) }">{{ item.text }}</v-btn>
+
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -104,7 +116,9 @@
       <router-view/>
       <div v-if="dialog" class="modal">
       <div class="model-content"  > 
-        <modal @close="closeModal" :parametro="modalParametro" class="modal-above"/> 
+        <modal v-if="typeModal == 'modal'" @close="closeModal" :parametro="modalParametro" class="modal-above"/>
+        <modalCourses v-if="typeModal == 'modalCourses'" @closec="closeModal" :parametro="modalParametro" class="modal-above"/> 
+        <modalMoment v-if="typeModal == 'modalMoment'" @closec="closeModal" :parametro="modalParametro" class="modal-above"/>
     </div>
     </div>
     </v-main>
@@ -116,15 +130,17 @@
 // import axios from 'axios'
 import json from './json/informacion.json'
 import modal from './components/cardModal.vue';
-// import modalCourses from '../components/cardModalCourses.vue';
-// import modalMoment from '../components/cardModalMoment.vue';
+import modalCourses from './components/cardModalCourses.vue';
+import modalMoment from './components/cardModalMoment.vue';
 
 
 
 export default {
   name: 'App',
   components: {
-      modal
+      modal,
+      modalCourses,
+      modalMoment
     },
   data() {
     return {
@@ -136,6 +152,7 @@ export default {
         { text: 'Momentos', route: '/Moment' },
         { text: 'Evaluación', route: '/evaluation' },
         { text: 'Créditos', route: '/credit' }
+
         
       ],
       search: '',
@@ -144,6 +161,7 @@ export default {
       selectedItem: null,
       dialog: false,
       modalParametro: '',
+      typeModal: null
 
         }
   },
@@ -181,7 +199,7 @@ export default {
 },
 logout() {
     localStorage.removeItem('session');
-    this.$router.push('/login');
+    this.$router.push('/auth');
   },
   onInput() {
  
@@ -190,15 +208,34 @@ logout() {
     },
 
     selectItem(item) {
+
+      
+
       this.selectedItem = item;
       this.showDropdown = false;
       console.log("selected", this.selectedItem)
+      const parametro = this.selectedItem.id_execute 
+      console.log(parametro)
+      if (parametro.startsWith('p', 'c', 'r')) {
+        this.typeModal = 'modal';
+      } else if (parametro.length > 0 && !isNaN(parametro[0])) {
+        this.typeModal = 'modalCourses';
+      } else {
+        this.typeModal = 'modalMoment';
+      }      
+      this.modalParametro = parametro
+      this.dialog = true
+      this.$emit('data')
     },
 
     loadResultsFromJson() {
         this.results = json.nombres
         console.log('json', this.results)
 
+    },
+
+    closeModal() {  
+      this.dialog = false
     },
 
   },

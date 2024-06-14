@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 import mysql.connector
 from mysql.connector import errorcode
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -37,28 +36,26 @@ def register():
     password = data.get('password')
 
     if not name or not user or not password:
-        return jsonify({'error': 'Faltan datos'}), 400
-
-    hashed_password = generate_password_hash(password)
+        return jsonify({'error': 'Faltan datos'})
 
     conn = get_db_connection()
     if not conn:
-        return jsonify({'error': 'No se pudo conectar a la base de datos'}), 500
+        return jsonify({'error': 'No se pudo conectar a la base de datos'})
 
     cur = conn.cursor()
     cur.execute("SELECT * FROM usuarios WHERE usuario = %s", (user,))
     existing_user = cur.fetchone()
     
     if existing_user:
-        return jsonify({'error': 'El usuario ya existe'}), 409
+        return jsonify({'error': 'El usuario ya existe'})
 
     cur.execute("INSERT INTO usuarios (name, usuario, contraseña) VALUES (%s, %s, %s)",
-                (name, user, hashed_password))
+                (name, user, password))
     conn.commit()
     cur.close()
     conn.close()
 
-    return jsonify({'message': 'Usuario registrado exitosamente'}), 201
+    return jsonify({'message': 'Usuario registrado exitosamente'})
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -68,11 +65,11 @@ def login():
     
 
     if not user or not password:
-        return jsonify({'error': 'Faltan datos'}), 400
+        return jsonify({'error': 'Faltan datos'})
 
     conn = get_db_connection()
     if not conn:
-        return jsonify({'error': 'No se pudo conectar a la base de datos'}), 500
+        return jsonify({'error': 'No se pudo conectar a la base de datos'})
 
     cur = conn.cursor()
     cur.execute("SELECT * FROM usuarios WHERE usuario = %s", (user,))
@@ -80,15 +77,19 @@ def login():
     cur.close()
     conn.close()
     
-    print(user_data)
+    print('user_data', user_data)
+    print('password', password)
+
 
     if not user_data:
         return jsonify({'error': 'Usuario no encontrado'})
 
-    user_id, name, user, user_password, remember = user_data
+    user_id, name, user, user_password = user_data
 
-    if check_password_hash(user_password, password):
-        return jsonify({'message': 'Inicio de sesión exitoso', 'user': {'id': user_id, 'name': name, 'user': user, 'remember': remember}}), 200
+    print(user, user_password)
+
+    if user_password == password:
+        return jsonify({'message': 'Inicio de sesión exitoso'})
     else:
         return jsonify({'error': 'Contraseña incorrecta'})
 
